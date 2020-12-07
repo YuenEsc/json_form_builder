@@ -2,8 +2,6 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
-import 'package:flutter_form_builder/l10n/messages_all.dart';
-import 'package:intl/intl.dart';
 import 'package:json_form_builder/src/fields/checkbox_group_builder.dart';
 import 'package:json_form_builder/src/fields/checkbox_with_comments.dart';
 import 'package:json_form_builder/src/fields/date_picker_builder.dart';
@@ -25,14 +23,12 @@ class JsonFormBuilder extends StatefulWidget {
         horizontal: 32,
         vertical: 16,
       ),
-      this.locale = const Locale('es','MX'),
       this.onSubmitted})
       : super(key: key);
 
   final String json;
   final String buttonLabel;
   final EdgeInsets padding;
-  final Locale locale;
   final Function(Map<String, dynamic> result) onSubmitted;
 
   @override
@@ -48,7 +44,6 @@ class _JsonFormBuilderState extends State<JsonFormBuilder> {
   void didChangeDependencies() {
     super.didChangeDependencies();
     buildFieldsFromJson();
-    initializeMessages(widget.locale.languageCode);
   }
 
   @override
