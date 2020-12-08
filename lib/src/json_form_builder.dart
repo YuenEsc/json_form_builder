@@ -24,13 +24,15 @@ class JsonFormBuilder extends StatefulWidget {
         horizontal: 32,
         vertical: 16,
       ),
-      this.onSubmitted})
+      this.onSubmittedAndValid,
+      this.onSubmittedAndNotValid})
       : super(key: key);
 
   final String json;
   final String buttonLabel;
   final EdgeInsets padding;
-  final Function(Map<String, dynamic> result) onSubmitted;
+  final Function(Map<String, dynamic> result) onSubmittedAndValid;
+  final Function(Map<String, dynamic> result) onSubmittedAndNotValid;
   final Map<String,dynamic> initialValue;
 
   @override
@@ -100,7 +102,10 @@ class _JsonFormBuilderState extends State<JsonFormBuilder> {
             onPressed: () {
               if (fbKey.currentState.saveAndValidate()) {
                 Map<String, dynamic> result = fbKey.currentState.value;
-                widget.onSubmitted(result);
+                widget.onSubmittedAndValid(result);
+              } else {
+                Map<String, dynamic> result = fbKey.currentState.value;
+                widget.onSubmittedAndNotValid(result);
               }
             },
           ),
