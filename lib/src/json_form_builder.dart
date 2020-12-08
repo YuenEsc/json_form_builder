@@ -19,6 +19,7 @@ class JsonFormBuilder extends StatefulWidget {
       {Key key,
       this.json,
       this.buttonLabel = 'Finalizar',
+      this.initialValue,
       this.padding = const EdgeInsets.symmetric(
         horizontal: 32,
         vertical: 16,
@@ -30,6 +31,7 @@ class JsonFormBuilder extends StatefulWidget {
   final String buttonLabel;
   final EdgeInsets padding;
   final Function(Map<String, dynamic> result) onSubmitted;
+  final Map<String,dynamic> initialValue;
 
   @override
   _JsonFormBuilderState createState() => _JsonFormBuilderState();
@@ -113,6 +115,7 @@ class _JsonFormBuilderState extends State<JsonFormBuilder> {
     return SingleChildScrollView(
       child: FormBuilder(
         key: fbKey,
+        initialValue: widget.initialValue,
         child: Padding(
           padding: widget.padding,
           child: Column(
