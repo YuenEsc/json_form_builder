@@ -25,12 +25,14 @@ class JsonFormBuilder extends StatefulWidget {
         vertical: 16,
       ),
       this.onSubmittedAndValid,
-      this.onSubmittedAndNotValid})
+      this.onSubmittedAndNotValid,
+      this.enabled = true})
       : super(key: key);
 
   final String json;
   final String buttonLabel;
   final EdgeInsets padding;
+  final bool enabled;
   final Function(Map<String, dynamic> result) onSubmittedAndValid;
   final Function(Map<String, dynamic> result) onSubmittedAndNotValid;
   final Map<String,dynamic> initialValue;
@@ -92,7 +94,8 @@ class _JsonFormBuilderState extends State<JsonFormBuilder> {
         );
       },
     );
-    fields.addAll(
+    if(widget.enabled){
+      fields.addAll(
       [
         SizedBox(
           height: 48,
@@ -112,6 +115,7 @@ class _JsonFormBuilderState extends State<JsonFormBuilder> {
         )
       ],
     );
+    }
     setState(() {});
   }
 
@@ -121,6 +125,7 @@ class _JsonFormBuilderState extends State<JsonFormBuilder> {
       child: FormBuilder(
         key: fbKey,
         initialValue: widget.initialValue,
+        enabled: widget.enabled,
         child: Padding(
           padding: widget.padding,
           child: Column(
