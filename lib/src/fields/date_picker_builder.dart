@@ -44,7 +44,7 @@ class DatePickerBuilder extends StatelessWidget {
               rawField.containsKey("readOnly") && rawField["readOnly"] == "true"
                   ? false
                   : true,
-          initialValue: rawField.containsKey("value") && "value" != null
+          initialValue: rawField.containsKey("value") && rawField["value"] != null
               ? DateTime.parse(rawField["value"])
               : null,
         ),
