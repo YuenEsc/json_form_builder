@@ -35,7 +35,7 @@ class DatePickerBuilder extends StatelessWidget {
           inputType: InputType.date,
           format: rawField.containsKey("format")
               ? DateFormat(rawField["format"])
-              : DateFormat('d/M/y'),
+              : DateFormat('y-M-d'),
           validator:
               rawField.containsKey("required") && rawField["required"] == true
                   ? FormBuilderValidators.required(context)
