@@ -159,9 +159,19 @@ class _MyHomePageState extends State<MyHomePage> {
               "type": "locationfield",
               "name": "location",
               "required": "true"
+            },
+            {
+              "label": "Subir evidencia fotografica",
+              "type": "imagepicker",
+              "name": "photos",
+              "required": "true",
+              "readOnly":"false",
             }
           ]),
-          onSubmitted: (results) {
+          onSubmittedAndValid: (results) {
+            print(results);
+          },
+          onSubmittedAndNotValid: (results) {
             print(results);
           },
         ));
