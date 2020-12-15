@@ -7,6 +7,7 @@ import 'package:json_form_builder/src/fields/checkbox_with_comments.dart';
 import 'package:json_form_builder/src/fields/date_picker_builder.dart';
 import 'package:json_form_builder/src/fields/dropdown_builder.dart';
 import 'package:json_form_builder/src/fields/filter_chip_builder.dart';
+import 'package:json_form_builder/src/fields/image_picker_builder.dart';
 import 'package:json_form_builder/src/fields/location_field_builder.dart';
 import 'package:json_form_builder/src/fields/radio_group_builder.dart';
 import 'package:json_form_builder/src/fields/searchable_dropdown_builder.dart';
@@ -35,7 +36,7 @@ class JsonFormBuilder extends StatefulWidget {
   final bool enabled;
   final Function(Map<String, dynamic> result) onSubmittedAndValid;
   final Function(Map<String, dynamic> result) onSubmittedAndNotValid;
-  final Map<String,dynamic> initialValue;
+  final Map<String, dynamic> initialValue;
 
   @override
   _JsonFormBuilderState createState() => _JsonFormBuilderState();
@@ -59,7 +60,7 @@ class _JsonFormBuilderState extends State<JsonFormBuilder> {
   }
 
   buildFieldsFromJson() {
-    fields=[];
+    fields = [];
     List<Map<String, dynamic>> parsedJson =
         List<Map<String, dynamic>>.from(jsonDecode(widget.json));
     parsedJson.forEach(
@@ -67,25 +68,29 @@ class _JsonFormBuilderState extends State<JsonFormBuilder> {
         if (rawField["type"] == 'datepicker') {
           fields.add(DatePickerBuilder(rawField: rawField));
         } else if (rawField["type"] == 'textfield') {
-          fields.add(TextFieldBuilder(rawField: rawField,));
+          fields.add(TextFieldBuilder(
+            rawField: rawField,
+          ));
         } else if (rawField["type"] == 'segmentedcontrol') {
           fields.add(SegmentedControlBuilder(rawField: rawField));
         } else if (rawField["type"] == 'radiogroup') {
           fields.add(RadioGroupBuilder(rawField: rawField));
         } else if (rawField["type"] == 'dropdown') {
           fields.add(DropdownBuilder(rawField: rawField));
-        } else if (rawField["type"] == 'checkbox'){
+        } else if (rawField["type"] == 'checkbox') {
           fields.add(CheckboxGroupBuilder(rawField: rawField));
-        } else if (rawField["type"] == 'searchabledropdown'){
+        } else if (rawField["type"] == 'searchabledropdown') {
           fields.add(SearchableDropdownBuilder(rawField: rawField));
-        } else if (rawField["type"] == 'filterchip'){
+        } else if (rawField["type"] == 'filterchip') {
           fields.add(FilterChipBuilder(rawField: rawField));
-        } else if (rawField["type"] == 'locationfield'){
+        } else if (rawField["type"] == 'locationfield') {
           fields.add(LocationFieldBuilder(rawField: rawField, fbKey: fbKey));
-        } else if (rawField["type"] == 'checkbox-with-comments'){
+        } else if (rawField["type"] == 'checkbox-with-comments') {
           fields.add(CheckboxWithComments(rawField: rawField));
-        } else if (rawField["type"] == 'title'){
+        } else if (rawField["type"] == 'title') {
           fields.add(TitleBuilder(rawField: rawField));
+        } else if (rawField["type"] == 'imagepicker') {
+          fields.add(ImagePickerBuilder(rawField: rawField));
         }
         fields.add(
           SizedBox(
@@ -94,27 +99,27 @@ class _JsonFormBuilderState extends State<JsonFormBuilder> {
         );
       },
     );
-    if(widget.enabled){
+    if (widget.enabled) {
       fields.addAll(
-      [
-        SizedBox(
-          height: 48,
-          width: MediaQuery.of(context).size.width,
-          child: ElevatedButton(
-            child: Text(widget.buttonLabel),
-            onPressed: () {
-              if (fbKey.currentState.saveAndValidate()) {
-                Map<String, dynamic> result = fbKey.currentState.value;
-                widget.onSubmittedAndValid(result);
-              } else {
-                Map<String, dynamic> result = fbKey.currentState.value;
-                widget.onSubmittedAndNotValid(result);
-              }
-            },
-          ),
-        )
-      ],
-    );
+        [
+          SizedBox(
+            height: 48,
+            width: MediaQuery.of(context).size.width,
+            child: ElevatedButton(
+              child: Text(widget.buttonLabel),
+              onPressed: () {
+                if (fbKey.currentState.saveAndValidate()) {
+                  Map<String, dynamic> result = fbKey.currentState.value;
+                  widget.onSubmittedAndValid(result);
+                } else {
+                  Map<String, dynamic> result = fbKey.currentState.value;
+                  widget.onSubmittedAndNotValid(result);
+                }
+              },
+            ),
+          )
+        ],
+      );
     }
     setState(() {});
   }
