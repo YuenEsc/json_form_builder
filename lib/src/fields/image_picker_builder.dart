@@ -38,6 +38,7 @@ class ImagePickerBuilder extends StatelessWidget {
                   ? FormBuilderValidators.required(context)
                   : null,
           maxImages: 4,
+          imageQuality: 50,
         ),
       ],
     );
