@@ -18,7 +18,6 @@ dependencies:
   intl: ^0.16.1
   geolocator: ^6.1.9
   geocoding: ^1.0.5
-  expandable: ^4.1.4
 
 dev_dependencies:
   flutter_test:

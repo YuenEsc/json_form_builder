@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:json_form_builder/src/fields/checkbox_group_builder.dart';
-import 'package:json_form_builder/src/fields/checkbox_with_comments.dart';
+import 'package:json_form_builder/src/fields/checkbox_with_comments/checkbox_with_comments_builder.dart';
 import 'package:json_form_builder/src/fields/date_picker_builder.dart';
 import 'package:json_form_builder/src/fields/dropdown_builder.dart';
 import 'package:json_form_builder/src/fields/filter_chip_builder.dart';
@@ -86,7 +86,7 @@ class _JsonFormBuilderState extends State<JsonFormBuilder> {
         } else if (rawField["type"] == 'locationfield') {
           fields.add(LocationFieldBuilder(rawField: rawField, fbKey: fbKey));
         } else if (rawField["type"] == 'checkbox-with-comments') {
-          fields.add(CheckboxWithComments(rawField: rawField));
+          fields.add(CheckboxWithCommentsBuilder(rawField: rawField));
         } else if (rawField["type"] == 'title') {
           fields.add(TitleBuilder(rawField: rawField));
         } else if (rawField["type"] == 'imagepicker') {
