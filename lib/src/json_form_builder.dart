@@ -28,8 +28,10 @@ class JsonFormBuilder extends StatefulWidget {
       this.onSubmittedAndValid,
       this.onSubmittedAndNotValid,
       this.enabled = true,
-      this.showAction = false})
-      : super(key: key);
+      this.showAction = false,
+      ScrollController scrollController})
+      : scrollController = scrollController == null ? ScrollController() : scrollController,  
+      super(key: key);
 
   final String json;
   final String buttonLabel;
@@ -39,6 +41,7 @@ class JsonFormBuilder extends StatefulWidget {
   final Function(Map<String, dynamic> result) onSubmittedAndValid;
   final Function(Map<String, dynamic> result) onSubmittedAndNotValid;
   final Map<String, dynamic> initialValue;
+  final ScrollController scrollController;
 
   @override
   _JsonFormBuilderState createState() => _JsonFormBuilderState();
@@ -129,6 +132,7 @@ class _JsonFormBuilderState extends State<JsonFormBuilder> {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
+      controller: widget.scrollController,
       child: FormBuilder(
         key: fbKey,
         initialValue: widget.initialValue,
