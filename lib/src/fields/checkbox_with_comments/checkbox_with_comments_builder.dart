@@ -1,4 +1,3 @@
-import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:json_form_builder/src/fields/checkbox_with_comments/checkbox_with_comments_checkbox.dart';
 import 'package:json_form_builder/src/fields/checkbox_with_comments/checkbox_with_comments_collapsed.dart';
@@ -16,8 +15,6 @@ class CheckboxWithCommentsBuilder extends StatefulWidget {
 
 class _CheckboxWithCommentsBuilderState
     extends State<CheckboxWithCommentsBuilder> {
-  final ExpandableController expandableController =
-      ExpandableController(initialExpanded: false);
 
   final FocusNode fn = FocusNode();
   bool isExpanded = false;
