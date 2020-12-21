@@ -12,6 +12,7 @@ import 'package:json_form_builder/src/fields/location_field_builder.dart';
 import 'package:json_form_builder/src/fields/radio_group_builder.dart';
 import 'package:json_form_builder/src/fields/searchable_dropdown_builder.dart';
 import 'package:json_form_builder/src/fields/segmented_control_builder.dart';
+import 'package:json_form_builder/src/fields/switch_with_dropdown/switch_with_dropdown_builder.dart';
 import 'package:json_form_builder/src/fields/text_field_builder.dart';
 import 'package:json_form_builder/src/fields/title_builder.dart';
 
@@ -30,8 +31,9 @@ class JsonFormBuilder extends StatefulWidget {
       this.enabled = true,
       this.showAction = false,
       ScrollController scrollController})
-      : scrollController = scrollController == null ? ScrollController() : scrollController,  
-      super(key: key);
+      : scrollController =
+            scrollController == null ? ScrollController() : scrollController,
+        super(key: key);
 
   final String json;
   final String buttonLabel;
@@ -73,9 +75,11 @@ class _JsonFormBuilderState extends State<JsonFormBuilder> {
         if (rawField["type"] == 'datepicker') {
           fields.add(DatePickerBuilder(rawField: rawField));
         } else if (rawField["type"] == 'textfield') {
-          fields.add(TextFieldBuilder(
-            rawField: rawField,
-          ));
+          fields.add(
+            TextFieldBuilder(
+              rawField: rawField,
+            ),
+          );
         } else if (rawField["type"] == 'segmentedcontrol') {
           fields.add(SegmentedControlBuilder(rawField: rawField));
         } else if (rawField["type"] == 'radiogroup') {
@@ -96,6 +100,8 @@ class _JsonFormBuilderState extends State<JsonFormBuilder> {
           fields.add(TitleBuilder(rawField: rawField));
         } else if (rawField["type"] == 'imagepicker') {
           fields.add(ImagePickerBuilder(rawField: rawField));
+        } else if (rawField["type"] == 'switch-with-dropdown'){
+          fields.add(SwitchWithDropdownBuilder(rawField: rawField,));
         }
         fields.add(
           SizedBox(

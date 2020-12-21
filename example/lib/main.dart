@@ -166,6 +166,19 @@ class _MyHomePageState extends State<MyHomePage> {
               "name": "photos",
               "required": "true",
               "readOnly":"false",
+            },
+            {
+              "label": "¿Va acompañado?",
+              "type": "switch-with-dropdown",
+              "name": "switch1234",
+              "readOnly":"false",
+              "labelDropdown":"Seleccione su compañero",
+              "nameDropdown":"dropdown1234",
+              "optionsDropdown":[
+                {"label": "Yuen", "value": "Yuen"},
+                {"label": "Carlos", "value": "Carlos"},
+                {"label": "Alex", "value": "Alex"},
+              ]
             }
           ]),
           onSubmittedAndValid: (results) {

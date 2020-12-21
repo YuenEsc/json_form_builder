@@ -16,7 +16,6 @@ class CheckboxWithCommentsBuilder extends StatefulWidget {
 class _CheckboxWithCommentsBuilderState
     extends State<CheckboxWithCommentsBuilder> {
 
-  final FocusNode fn = FocusNode();
   bool isExpanded = false;
 
   @override
