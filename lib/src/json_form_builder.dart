@@ -30,9 +30,12 @@ class JsonFormBuilder extends StatefulWidget {
       this.onSubmittedAndNotValid,
       this.enabled = true,
       this.showAction = false,
-      ScrollController scrollController})
+      ScrollController scrollController,
+      GlobalKey<FormBuilderState> fbKey})
       : scrollController =
             scrollController == null ? ScrollController() : scrollController,
+      fbKey = 
+        fbKey == null ? GlobalKey<FormBuilderState>() : fbKey,
         super(key: key);
 
   final String json;
@@ -44,14 +47,13 @@ class JsonFormBuilder extends StatefulWidget {
   final Function(Map<String, dynamic> result) onSubmittedAndNotValid;
   final Map<String, dynamic> initialValue;
   final ScrollController scrollController;
+  final GlobalKey<FormBuilderState> fbKey;
 
   @override
   _JsonFormBuilderState createState() => _JsonFormBuilderState();
 }
 
 class _JsonFormBuilderState extends State<JsonFormBuilder> {
-  final GlobalKey<FormBuilderState> fbKey = GlobalKey<FormBuilderState>();
-
   List<Widget> fields = [];
 
   @override
@@ -119,11 +121,11 @@ class _JsonFormBuilderState extends State<JsonFormBuilder> {
             child: ElevatedButton(
               child: Text(widget.buttonLabel),
               onPressed: () {
-                if (fbKey.currentState.saveAndValidate()) {
-                  Map<String, dynamic> result = fbKey.currentState.value;
+                if (widget.fbKey.currentState.saveAndValidate()) {
+                  Map<String, dynamic> result = widget.fbKey.currentState.value;
                   widget.onSubmittedAndValid(result);
                 } else {
-                  Map<String, dynamic> result = fbKey.currentState.value;
+                  Map<String, dynamic> result = widget.fbKey.currentState.value;
                   widget.onSubmittedAndNotValid(result);
                 }
               },
@@ -140,7 +142,7 @@ class _JsonFormBuilderState extends State<JsonFormBuilder> {
     return SingleChildScrollView(
       controller: widget.scrollController,
       child: FormBuilder(
-        key: fbKey,
+        key: widget.fbKey,
         initialValue: widget.initialValue,
         enabled: widget.enabled,
         child: Padding(
