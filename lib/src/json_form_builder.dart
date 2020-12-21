@@ -95,7 +95,7 @@ class _JsonFormBuilderState extends State<JsonFormBuilder> {
         } else if (rawField["type"] == 'filterchip') {
           fields.add(FilterChipBuilder(rawField: rawField));
         } else if (rawField["type"] == 'locationfield') {
-          fields.add(LocationFieldBuilder(rawField: rawField, fbKey: fbKey));
+          fields.add(LocationFieldBuilder(rawField: rawField, fbKey: widget.fbKey));
         } else if (rawField["type"] == 'checkbox-with-comments') {
           fields.add(CheckboxWithCommentsBuilder(rawField: rawField));
         } else if (rawField["type"] == 'title') {
