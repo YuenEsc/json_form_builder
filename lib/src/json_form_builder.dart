@@ -31,6 +31,7 @@ class JsonFormBuilder extends StatefulWidget {
       this.enabled = true,
       this.showAction = false,
       this.onWillPop,
+      this.onChanged,
       ScrollController scrollController,
       GlobalKey<FormBuilderState> fbKey})
       : scrollController =
@@ -50,6 +51,7 @@ class JsonFormBuilder extends StatefulWidget {
   final ScrollController scrollController;
   final GlobalKey<FormBuilderState> fbKey;
   final WillPopCallback onWillPop;
+  final VoidCallback onChanged;
 
   @override
   _JsonFormBuilderState createState() => _JsonFormBuilderState();
@@ -144,6 +146,7 @@ class _JsonFormBuilderState extends State<JsonFormBuilder> {
     return SingleChildScrollView(
       controller: widget.scrollController,
       child: FormBuilder(
+        onChanged: widget.onChanged,
         key: widget.fbKey,
         initialValue: widget.initialValue,
         enabled: widget.enabled,
