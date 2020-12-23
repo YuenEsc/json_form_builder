@@ -30,6 +30,7 @@ class JsonFormBuilder extends StatefulWidget {
       this.onSubmittedAndNotValid,
       this.enabled = true,
       this.showAction = false,
+      this.onWillPop,
       ScrollController scrollController,
       GlobalKey<FormBuilderState> fbKey})
       : scrollController =
@@ -48,6 +49,7 @@ class JsonFormBuilder extends StatefulWidget {
   final Map<String, dynamic> initialValue;
   final ScrollController scrollController;
   final GlobalKey<FormBuilderState> fbKey;
+  final WillPopCallback onWillPop;
 
   @override
   _JsonFormBuilderState createState() => _JsonFormBuilderState();
@@ -145,6 +147,7 @@ class _JsonFormBuilderState extends State<JsonFormBuilder> {
         key: widget.fbKey,
         initialValue: widget.initialValue,
         enabled: widget.enabled,
+        onWillPop: widget.onWillPop,
         child: Padding(
           padding: widget.padding,
           child: Column(
