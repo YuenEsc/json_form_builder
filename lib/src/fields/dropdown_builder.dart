@@ -2,10 +2,11 @@ import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:flutter/material.dart';
 
 class DropdownBuilder extends StatelessWidget {
-  DropdownBuilder({Key key, this.rawField}) : super(key: key);
+  DropdownBuilder({Key key, this.rawField, this.isExpanded = true}) : super(key: key);
 
   final Map<String, dynamic> rawField;
     final FocusNode fn = FocusNode();
+    final bool isExpanded;
 
 
   @override
@@ -38,7 +39,7 @@ class DropdownBuilder extends StatelessWidget {
                   ? false
                   : true,
           validator:
-              rawField.containsKey("required") && rawField["required"] == "true"
+              rawField.containsKey("required") && (rawField["required"] == "true" && isExpanded)
                   ? FormBuilderValidators.required(context)
                   : null,
           items: rawField["options"]

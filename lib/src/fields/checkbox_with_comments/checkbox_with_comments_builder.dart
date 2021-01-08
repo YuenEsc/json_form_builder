@@ -46,6 +46,7 @@ class _CheckboxWithCommentsBuilderState
           firstChild: CheckboxWithCommentsCollapsed(),
           secondChild: CheckboxWithCommentsExpanded(
             rawField: widget.rawField,
+            isExpanded: isExpanded,
           ),
         ),
       ],

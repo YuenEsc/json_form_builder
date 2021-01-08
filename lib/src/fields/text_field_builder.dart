@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 
 class TextFieldBuilder extends StatelessWidget {
-  TextFieldBuilder({Key key, this.rawField}) : super(key: key);
+  TextFieldBuilder({Key key, this.rawField, this.isExpanded = true}) : super(key: key);
 
   final Map<String, dynamic> rawField;
-    final FocusNode fn = FocusNode();
+  final FocusNode fn = FocusNode();
+  final bool isExpanded;
 
 
   @override
@@ -35,7 +36,7 @@ class TextFieldBuilder extends StatelessWidget {
                   : true,
           initialValue: rawField["value"],
           validator:
-              rawField.containsKey("required") && rawField["required"] == "true"
+              rawField.containsKey("required") && (rawField["required"] == "true" && isExpanded)
                   ? FormBuilderValidators.required(context)
                   : null,
         ),

@@ -15,7 +15,6 @@ class ExpandableSegmentedControlBuilder extends StatefulWidget {
 
 class _ExpandableSegmentedControlBuilderState
     extends State<ExpandableSegmentedControlBuilder> {
-
   bool isExpanded = false;
 
   @override
@@ -45,7 +44,9 @@ class _ExpandableSegmentedControlBuilderState
           duration: Duration(milliseconds: 300),
           firstChild: ExpandableSegmentedControlCollapsed(),
           secondChild: ExpandableSegmentedControlExpanded(
-            rawFieldList: List<Map<String,dynamic>>.from(widget.rawField['expandedFields']),
+            isExpanded: isExpanded,
+            rawFieldList: List<Map<String, dynamic>>.from(
+                widget.rawField['expandedFields']),
           ),
         ),
       ],

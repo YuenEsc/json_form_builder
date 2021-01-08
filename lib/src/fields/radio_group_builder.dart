@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 
 class RadioGroupBuilder extends StatelessWidget {
-  RadioGroupBuilder({Key key, this.rawField}) : super(key: key);
+  RadioGroupBuilder({Key key, this.rawField, this.isExpanded = true}) : super(key: key);
 
   final Map<String, dynamic> rawField;
     final FocusNode fn = FocusNode();
+    final bool isExpanded;
 
 
   @override
@@ -37,7 +38,7 @@ class RadioGroupBuilder extends StatelessWidget {
                   ? false
                   : true,
           validator:
-              rawField.containsKey("required") && rawField["required"] == "true"
+              rawField.containsKey("required") && (rawField["required"] == "true" && isExpanded)
                   ? FormBuilderValidators.required(context)
                   : null,
           options: rawField["options"]

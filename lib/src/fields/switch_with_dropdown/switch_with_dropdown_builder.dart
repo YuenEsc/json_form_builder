@@ -43,6 +43,7 @@ class _SwitchWithDropdownBuilderState extends State<SwitchWithDropdownBuilder> {
           duration: Duration(milliseconds: 300),
           firstChild: SwitchWithDropdownCollapsed(),
           secondChild: SwitchWithDropdownExpanded(
+            isExpanded: isExpanded,
             rawField: widget.rawField,
           ),
         ),

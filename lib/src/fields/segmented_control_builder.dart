@@ -2,10 +2,11 @@ import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:flutter/material.dart';
 
 class SegmentedControlBuilder extends StatelessWidget {
-  SegmentedControlBuilder({Key key, this.rawField}) : super(key: key);
+  SegmentedControlBuilder({Key key, this.rawField, this.isExpanded = true}) : super(key: key);
 
   final Map<String, dynamic> rawField;
   final FocusNode fn = FocusNode();
+  final bool isExpanded;
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +37,7 @@ class SegmentedControlBuilder extends StatelessWidget {
                   ? false
                   : true,
           validator:
-              rawField.containsKey("required") && rawField["required"] == "true"
+              rawField.containsKey("required") && (rawField["required"] == "true" && isExpanded)
                   ? FormBuilderValidators.required(context)
                   : null,
           options: rawField["options"]

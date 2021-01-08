@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:json_form_builder/src/fields/checkbox_group_builder.dart';
 import 'package:json_form_builder/src/fields/date_picker_builder.dart';
@@ -11,10 +9,11 @@ import 'package:json_form_builder/src/fields/segmented_control_builder.dart';
 import 'package:json_form_builder/src/fields/text_field_builder.dart';
 
 class ExpandableSegmentedControlExpanded extends StatefulWidget {
-  ExpandableSegmentedControlExpanded({Key key, this.rawFieldList})
+  ExpandableSegmentedControlExpanded({Key key, this.rawFieldList, this.isExpanded})
       : super(key: key);
 
   final List<Map<String, dynamic>> rawFieldList;
+  final bool isExpanded;
 
   @override
   _ExpandableSegmentedControlExpandedState createState() =>
@@ -42,7 +41,7 @@ class _ExpandableSegmentedControlExpandedState
     widget.rawFieldList.forEach(
       (rawField) {
         if (rawField["type"] == 'datepicker') {
-          fields.add(DatePickerBuilder(rawField: rawField));
+          fields.add(DatePickerBuilder(rawField: rawField, isExpanded: widget.isExpanded,));
         } else if (rawField["type"] == 'textfield') {
           fields.add(
             TextFieldBuilder(
@@ -50,17 +49,17 @@ class _ExpandableSegmentedControlExpandedState
             ),
           );
         } else if (rawField["type"] == 'segmentedcontrol') {
-          fields.add(SegmentedControlBuilder(rawField: rawField));
+          fields.add(SegmentedControlBuilder(rawField: rawField, isExpanded: widget.isExpanded,));
         } else if (rawField["type"] == 'radiogroup') {
-          fields.add(RadioGroupBuilder(rawField: rawField));
+          fields.add(RadioGroupBuilder(rawField: rawField, isExpanded: widget.isExpanded,));
         } else if (rawField["type"] == 'dropdown') {
-          fields.add(DropdownBuilder(rawField: rawField));
+          fields.add(DropdownBuilder(rawField: rawField, isExpanded: widget.isExpanded,));
         } else if (rawField["type"] == 'checkbox') {
-          fields.add(CheckboxGroupBuilder(rawField: rawField));
+          fields.add(CheckboxGroupBuilder(rawField: rawField, isExpanded: widget.isExpanded,));
         } else if (rawField["type"] == 'searchabledropdown') {
-          fields.add(SearchableDropdownBuilder(rawField: rawField));
+          fields.add(SearchableDropdownBuilder(rawField: rawField, isExpanded: widget.isExpanded,));
         } else if (rawField["type"] == 'filterchip') {
-          fields.add(FilterChipBuilder(rawField: rawField));
+          fields.add(FilterChipBuilder(rawField: rawField, isExpanded: widget.isExpanded,));
         }
         fields.add(
           SizedBox(

@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 
 class InputChipBuilder extends StatelessWidget {
-  InputChipBuilder({Key key, this.rawField}) : super(key: key);
+  InputChipBuilder({Key key, this.rawField, this.isExpanded = true}) : super(key: key);
 
   final Map<String, dynamic> rawField;
     final FocusNode fn = FocusNode();
+    final bool isExpanded;
 
 
   @override
@@ -38,7 +39,7 @@ class InputChipBuilder extends StatelessWidget {
           name: rawField["name"],
           initialValue: rawField["value"],
           validator:
-              rawField.containsKey("required") && rawField["required"] == "true"
+              rawField.containsKey("required") && (rawField["required"] == "true" && isExpanded)
                   ? FormBuilderValidators.required(context)
                   : null,
           options: List<Map<String, dynamic>>.from(rawField["options"])

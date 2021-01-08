@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 
 class CheckboxGroupBuilder extends StatelessWidget {
-  CheckboxGroupBuilder({Key key, this.rawField}) : super(key: key);
+  CheckboxGroupBuilder({Key key, this.rawField, this.isExpanded = true}) : super(key: key);
 
   final Map<String, dynamic> rawField;
   final FocusNode fn = FocusNode();
+  final bool isExpanded;
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +37,7 @@ class CheckboxGroupBuilder extends StatelessWidget {
               ? List<String>.from(rawField["value"])
               : null,
           validator:
-              rawField.containsKey("required") && rawField["required"] == "true"
+              rawField.containsKey("required") && (rawField["required"] == "true" && isExpanded)
                   ? FormBuilderValidators.required(context)
                   : null,
           options: List<Map<String, dynamic>>.from(rawField["options"])

@@ -11,6 +11,7 @@ class CheckboxWithCommentsComment extends StatelessWidget {
     this.readOnlyIdentifier,
     this.requiredIdentifier,
     this.valueIdentifier,
+    this.isExpanded,
   }) : super(key: key);
 
   final Map<String, dynamic> rawField;
@@ -21,6 +22,7 @@ class CheckboxWithCommentsComment extends StatelessWidget {
   final String readOnlyIdentifier;
   final String requiredIdentifier;
   final String valueIdentifier;
+  final bool isExpanded;
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +55,7 @@ class CheckboxWithCommentsComment extends StatelessWidget {
               : true,
           initialValue: rawField[valueIdentifier],
           validator: rawField.containsKey(requiredIdentifier) &&
-                  rawField[requiredIdentifier] == "true"
+                  (rawField[requiredIdentifier] == "true" && isExpanded)
               ? FormBuilderValidators.required(context)
               : null,
           minLines: 3,

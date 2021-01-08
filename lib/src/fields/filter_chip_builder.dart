@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 
 class FilterChipBuilder extends StatelessWidget {
-  FilterChipBuilder({Key key, this.rawField}) : super(key: key);
+  FilterChipBuilder({Key key, this.rawField, this.isExpanded = true}) : super(key: key);
 
   final Map<String, dynamic> rawField;
     final FocusNode fn = FocusNode();
+    final bool isExpanded;
 
 
   @override
@@ -40,7 +41,7 @@ class FilterChipBuilder extends StatelessWidget {
               ? List<String>.from(rawField["value"])
               : [],
           validator:
-              rawField.containsKey("required") && rawField["required"] == "true"
+              rawField.containsKey("required") && (rawField["required"] == "true" && isExpanded)
                   ? FormBuilderValidators.required(context)
                   : null,
           options: List<Map<String, dynamic>>.from(rawField["options"])

@@ -2,10 +2,15 @@ import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:flutter/material.dart';
 
 class SwitchWithDropdownExpanded extends StatelessWidget {
-  SwitchWithDropdownExpanded({Key key, this.rawField}) : super(key: key);
+  SwitchWithDropdownExpanded({
+    Key key,
+    this.rawField,
+    this.isExpanded,
+  }) : super(key: key);
 
   final Map<String, dynamic> rawField;
   final FocusNode fn = FocusNode();
+  final bool isExpanded;
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +22,9 @@ class SwitchWithDropdownExpanded extends StatelessWidget {
               ? const EdgeInsets.symmetric(vertical: 8.0)
               : null,
           child: Text(
-            rawField.containsKey("labelDropdown") ? rawField["labelDropdown"] : null,
+            rawField.containsKey("labelDropdown")
+                ? rawField["labelDropdown"]
+                : null,
             style: Theme.of(context).textTheme.subtitle1,
             textAlign: TextAlign.left,
           ),
@@ -32,14 +39,14 @@ class SwitchWithDropdownExpanded extends StatelessWidget {
           ),
           name: rawField["nameDropdown"],
           initialValue: rawField["valueDropdown"],
-          enabled:
-              rawField.containsKey("readOnlyDropdown") && rawField["readOnlyDropdown"] == "true"
-                  ? false
-                  : true,
-          validator:
-              rawField.containsKey("requiredDropdown") && rawField["requiredDropdown"] == "true"
-                  ? FormBuilderValidators.required(context)
-                  : null,
+          enabled: rawField.containsKey("readOnlyDropdown") &&
+                  rawField["readOnlyDropdown"] == "true"
+              ? false
+              : true,
+          validator: rawField.containsKey("requiredDropdown") &&
+                  (isExpanded && rawField["requiredDropdown"] == "true")
+              ? FormBuilderValidators.required(context)
+              : null,
           items: rawField["optionsDropdown"]
               .map<DropdownMenuItem<String>>(
                 (option) => DropdownMenuItem<String>(
@@ -48,6 +55,7 @@ class SwitchWithDropdownExpanded extends StatelessWidget {
                 ),
               )
               .toList(),
+          isExpanded: this.isExpanded,
         ),
       ],
     );

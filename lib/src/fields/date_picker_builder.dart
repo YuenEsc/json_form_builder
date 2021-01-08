@@ -3,10 +3,11 @@ import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:intl/intl.dart';
 
 class DatePickerBuilder extends StatelessWidget {
-  DatePickerBuilder({Key key, this.rawField}) : super(key: key);
+  DatePickerBuilder({Key key, this.rawField, this.isExpanded=true}) : super(key: key);
 
   final Map<String, dynamic> rawField;
     final FocusNode fn = FocusNode();
+    final bool isExpanded;
 
 
   @override
@@ -41,7 +42,7 @@ class DatePickerBuilder extends StatelessWidget {
                   ? FormBuilderValidators.required(context)
                   : null,
           enabled:
-              rawField.containsKey("readOnly") && rawField["readOnly"] == "true"
+              rawField.containsKey("readOnly") && (rawField["readOnly"] == "true" && isExpanded)
                   ? false
                   : true,
           initialValue: rawField.containsKey("value") && rawField["value"] != null

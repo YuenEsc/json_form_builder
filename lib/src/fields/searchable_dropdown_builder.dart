@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 
 class SearchableDropdownBuilder extends StatelessWidget {
-  SearchableDropdownBuilder({Key key, this.rawField}) : super(key: key);
+  SearchableDropdownBuilder({Key key, this.rawField, this.isExpanded = true}) : super(key: key);
 
   final Map<String, dynamic> rawField;
   final FocusNode fn = FocusNode();
+  final bool isExpanded;
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +35,7 @@ class SearchableDropdownBuilder extends StatelessWidget {
             name: rawField["name"],
             initialValue: rawField["value"].toString(),
             validator: rawField.containsKey("required") &&
-                    rawField["required"] == "true"
+                    (rawField["required"] == "true" && isExpanded)
                 ? FormBuilderValidators.required(context)
                 : null,
             items: List<String>.from(rawField["options"])),
