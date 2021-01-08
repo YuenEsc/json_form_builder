@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:json_form_builder/src/fields/expandable_segmented_control/expandable_segmented_control.dart';
-import 'package:json_form_builder/src/fields/expandable_segmented_control/expandable_segmented_control_expanded.dart';
+import 'package:json_form_builder/src/fields/expandable_dropdown/expandable_dropdown.dart';
+import 'package:json_form_builder/src/fields/expandable_dropdown/expandable_dropdown_expanded.dart';
 
-class ExpandableSegmentedControlBuilder extends StatefulWidget {
-  ExpandableSegmentedControlBuilder({Key key, this.rawField}) : super(key: key);
-
+class ExpandableDropdownBuilder extends StatefulWidget {
+  ExpandableDropdownBuilder({Key key, this.rawField}) : super(key: key);
+  
   final Map<String, dynamic> rawField;
 
   @override
-  _ExpandableSegmentedControlBuilderState createState() =>
-      _ExpandableSegmentedControlBuilderState();
+  _ExpandableDropdownBuilderState createState() =>
+      _ExpandableDropdownBuilderState();
 }
 
-class _ExpandableSegmentedControlBuilderState
-    extends State<ExpandableSegmentedControlBuilder> {
+class _ExpandableDropdownBuilderState
+    extends State<ExpandableDropdownBuilder> {
   bool isExpanded = false;
 
   @override
@@ -29,7 +29,7 @@ class _ExpandableSegmentedControlBuilderState
   Widget build(BuildContext context) {
     return Column(
       children: [
-        ExpandableSegmentedControl(
+        ExpandableDropdown(
           rawField: widget.rawField,
           onChanged: (value) {
             setState(() {
@@ -40,7 +40,7 @@ class _ExpandableSegmentedControlBuilderState
         Visibility(
           visible: isExpanded,
           maintainState: false,
-          child: ExpandableSegmentedControlExpanded(
+          child: ExpandableDropdownExpanded(
             isExpanded: isExpanded,
             rawFieldList: List<Map<String, dynamic>>.from(
                 widget.rawField['expandedFields']),

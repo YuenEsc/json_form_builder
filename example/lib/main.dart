@@ -194,47 +194,88 @@ class _MyHomePageState extends State<MyHomePage> {
               "expandValue": "false",
               "expandedFields": [
                 {
-                  "label": "Seleccione un videojuego",
+                  "label": "Seleccione un ",
                   "type": "dropdown",
                   "name": "queen2",
                   "options": [
                     {"label": "Español", "value": "southpark"},
                     {"label": "English", "value": "Breath of the wild"},
                     {"label": "Yugioh forbidden memories", "value": "yugioh"},
+                    {"label": "otro", "value": "otro"},
                   ],
                 },
                 {
-                  "label": "Seleccione un videojuego",
+                  "label": "Seleccione un ",
                   "type": "dropdown",
-                  "name": "queen3",
+                  "name": "queen2",
                   "options": [
                     {"label": "Español", "value": "southpark"},
                     {"label": "English", "value": "Breath of the wild"},
                     {"label": "Yugioh forbidden memories", "value": "yugioh"},
+                    {"label": "otro", "value": "otro"},
                   ],
                 },
                 {
-                  "label": "Seleccione un videojuego",
-                  "type": "dropdown",
-                  "name": "queen4",
+                  "label": "Seleccione un ",
+                  "type": "expandable-dropdown",
+                  "name": "queen2",
                   "options": [
                     {"label": "Español", "value": "southpark"},
                     {"label": "English", "value": "Breath of the wild"},
                     {"label": "Yugioh forbidden memories", "value": "yugioh"},
+                    {"label": "otro", "value": "otro"},
                   ],
+                  "expandValue": "otro",
+                  "expandedFields": [
+                    {
+                      "label": "Mensaje",
+                      "type": "textfield",
+                      "name": "text"
+                    },
+                  ]
                 },
                 {
-                  "label": "Seleccione un videojuego",
-                  "type": "dropdown",
-                  "name": "queen5",
+                  "label": "Seleccione un ",
+                  "type": "expandable-dropdown",
+                  "name": "queen2",
                   "options": [
                     {"label": "Español", "value": "southpark"},
                     {"label": "English", "value": "Breath of the wild"},
                     {"label": "Yugioh forbidden memories", "value": "yugioh"},
+                    {"label": "otro", "value": "otro"},
                   ],
+                  "expandValue": "otro",
+                  "expandedFields": [
+                    {
+                      "label": "Mensaje",
+                      "type": "textfield",
+                      "name": "text"
+                    },
+                  ]
                 },
               ]
-            }
+            },
+            {
+                  "label": "Seleccione un ",
+                  "type": "expandable-dropdown",
+                  "name": "queen2",
+                  "required": "true",
+                  "options": [
+                    {"label": "Español", "value": "southpark"},
+                    {"label": "English", "value": "Breath of the wild"},
+                    {"label": "Yugioh forbidden memories", "value": "yugioh"},
+                    {"label": "otro", "value": "otro"},
+                  ],
+                  "expandValue": "otro",
+                  "expandedFields": [
+                    {
+                      "label": "Mensaje",
+                      "type": "textfield",
+                      "required": "true",
+                      "name": "text"
+                    },
+                  ]
+                },
           ]),
           onSubmittedAndValid: (results) {
             print(results);

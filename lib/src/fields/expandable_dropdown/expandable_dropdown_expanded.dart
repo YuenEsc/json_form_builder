@@ -2,27 +2,26 @@ import 'package:flutter/material.dart';
 import 'package:json_form_builder/src/fields/checkbox_group_builder.dart';
 import 'package:json_form_builder/src/fields/date_picker_builder.dart';
 import 'package:json_form_builder/src/fields/dropdown_builder.dart';
-import 'package:json_form_builder/src/fields/expandable_dropdown/expandable_dropdown_builder.dart';
 import 'package:json_form_builder/src/fields/filter_chip_builder.dart';
 import 'package:json_form_builder/src/fields/radio_group_builder.dart';
 import 'package:json_form_builder/src/fields/searchable_dropdown_builder.dart';
 import 'package:json_form_builder/src/fields/segmented_control_builder.dart';
 import 'package:json_form_builder/src/fields/text_field_builder.dart';
 
-class ExpandableSegmentedControlExpanded extends StatefulWidget {
-  ExpandableSegmentedControlExpanded({Key key, this.rawFieldList, this.isExpanded})
+class ExpandableDropdownExpanded extends StatefulWidget {
+  ExpandableDropdownExpanded({Key key, this.rawFieldList, this.isExpanded})
       : super(key: key);
 
   final List<Map<String, dynamic>> rawFieldList;
   final bool isExpanded;
 
   @override
-  _ExpandableSegmentedControlExpandedState createState() =>
-      _ExpandableSegmentedControlExpandedState();
+  _ExpandableDropdownExpandedState createState() =>
+      _ExpandableDropdownExpandedState();
 }
 
-class _ExpandableSegmentedControlExpandedState
-    extends State<ExpandableSegmentedControlExpanded> {
+class _ExpandableDropdownExpandedState
+    extends State<ExpandableDropdownExpanded> {
   List<Widget> fields = [];
 
   @override
@@ -62,12 +61,6 @@ class _ExpandableSegmentedControlExpandedState
           fields.add(SearchableDropdownBuilder(rawField: rawField, isExpanded: widget.isExpanded,));
         } else if (rawField["type"] == 'filterchip') {
           fields.add(FilterChipBuilder(rawField: rawField, isExpanded: widget.isExpanded,));
-        } else if (rawField["type"] == 'expandable-dropdown') {
-          fields.add(
-            ExpandableDropdownBuilder(
-              rawField: rawField,
-            ),
-          );
         }
       },
     );

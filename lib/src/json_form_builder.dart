@@ -6,6 +6,7 @@ import 'package:json_form_builder/src/fields/checkbox_group_builder.dart';
 import 'package:json_form_builder/src/fields/checkbox_with_comments/checkbox_with_comments_builder.dart';
 import 'package:json_form_builder/src/fields/date_picker_builder.dart';
 import 'package:json_form_builder/src/fields/dropdown_builder.dart';
+import 'package:json_form_builder/src/fields/expandable_dropdown/expandable_dropdown_builder.dart';
 import 'package:json_form_builder/src/fields/expandable_segmented_control/expandable_segmented_control_builder.dart';
 import 'package:json_form_builder/src/fields/filter_chip_builder.dart';
 import 'package:json_form_builder/src/fields/image_picker_builder.dart';
@@ -37,8 +38,7 @@ class JsonFormBuilder extends StatefulWidget {
       GlobalKey<FormBuilderState> fbKey})
       : scrollController =
             scrollController == null ? ScrollController() : scrollController,
-      fbKey = 
-        fbKey == null ? GlobalKey<FormBuilderState>() : fbKey,
+        fbKey = fbKey == null ? GlobalKey<FormBuilderState>() : fbKey,
         super(key: key);
 
   final String json;
@@ -80,7 +80,9 @@ class _JsonFormBuilderState extends State<JsonFormBuilder> {
     parsedJson.forEach(
       (rawField) {
         if (rawField["type"] == 'datepicker') {
-          fields.add(DatePickerBuilder(rawField: rawField));
+          fields.add(
+            DatePickerBuilder(rawField: rawField),
+          );
         } else if (rawField["type"] == 'textfield') {
           fields.add(
             TextFieldBuilder(
@@ -88,31 +90,84 @@ class _JsonFormBuilderState extends State<JsonFormBuilder> {
             ),
           );
         } else if (rawField["type"] == 'segmentedcontrol') {
-          fields.add(SegmentedControlBuilder(rawField: rawField));
+          fields.add(
+            SegmentedControlBuilder(
+              rawField: rawField,
+            ),
+          );
         } else if (rawField["type"] == 'radiogroup') {
-          fields.add(RadioGroupBuilder(rawField: rawField));
+          fields.add(
+            RadioGroupBuilder(
+              rawField: rawField,
+            ),
+          );
         } else if (rawField["type"] == 'dropdown') {
-          fields.add(DropdownBuilder(rawField: rawField));
+          fields.add(
+            DropdownBuilder(
+              rawField: rawField,
+            ),
+          );
         } else if (rawField["type"] == 'checkbox') {
-          fields.add(CheckboxGroupBuilder(rawField: rawField));
+          fields.add(
+            CheckboxGroupBuilder(
+              rawField: rawField,
+            ),
+          );
         } else if (rawField["type"] == 'searchabledropdown') {
-          fields.add(SearchableDropdownBuilder(rawField: rawField));
+          fields.add(
+            SearchableDropdownBuilder(
+              rawField: rawField,
+            ),
+          );
         } else if (rawField["type"] == 'filterchip') {
-          fields.add(FilterChipBuilder(rawField: rawField));
+          fields.add(
+            FilterChipBuilder(
+              rawField: rawField,
+            ),
+          );
         } else if (rawField["type"] == 'locationfield') {
-          fields.add(LocationFieldBuilder(rawField: rawField, fbKey: widget.fbKey));
+          fields.add(
+            LocationFieldBuilder(
+              rawField: rawField,
+              fbKey: widget.fbKey,
+            ),
+          );
         } else if (rawField["type"] == 'checkbox-with-comments') {
-          fields.add(CheckboxWithCommentsBuilder(rawField: rawField));
+          fields.add(
+            CheckboxWithCommentsBuilder(
+              rawField: rawField,
+            ),
+          );
         } else if (rawField["type"] == 'title') {
-          fields.add(TitleBuilder(rawField: rawField));
+          fields.add(
+            TitleBuilder(
+              rawField: rawField,
+            ),
+          );
         } else if (rawField["type"] == 'imagepicker') {
-          fields.add(ImagePickerBuilder(rawField: rawField));
-        } else if (rawField["type"] == 'switch-with-dropdown'){
-          fields.add(SwitchWithDropdownBuilder(rawField: rawField,));
-        } else if (rawField["type"] == 'switch-with-dropdown'){
-          fields.add(SwitchWithDropdownBuilder(rawField: rawField,));
-        } else if (rawField["type"] == 'expandable-segmentedcontrol'){
-          fields.add(ExpandableSegmentedControlBuilder(rawField: rawField,));
+          fields.add(
+            ImagePickerBuilder(
+              rawField: rawField,
+            ),
+          );
+        } else if (rawField["type"] == 'switch-with-dropdown') {
+          fields.add(
+            SwitchWithDropdownBuilder(
+              rawField: rawField,
+            ),
+          );
+        } else if (rawField["type"] == 'expandable-segmentedcontrol') {
+          fields.add(
+            ExpandableSegmentedControlBuilder(
+              rawField: rawField,
+            ),
+          );
+        } else if (rawField["type"] == 'expandable-dropdown') {
+          fields.add(
+            ExpandableDropdownBuilder(
+              rawField: rawField,
+            ),
+          );
         }
         fields.add(
           SizedBox(
