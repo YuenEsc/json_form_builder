@@ -6,6 +6,7 @@ import 'package:json_form_builder/src/fields/checkbox_group_builder.dart';
 import 'package:json_form_builder/src/fields/checkbox_with_comments/checkbox_with_comments_builder.dart';
 import 'package:json_form_builder/src/fields/date_picker_builder.dart';
 import 'package:json_form_builder/src/fields/dropdown_builder.dart';
+import 'package:json_form_builder/src/fields/expandable_segmented_control/expandable_segmented_control_builder.dart';
 import 'package:json_form_builder/src/fields/filter_chip_builder.dart';
 import 'package:json_form_builder/src/fields/image_picker_builder.dart';
 import 'package:json_form_builder/src/fields/location_field_builder.dart';
@@ -108,6 +109,10 @@ class _JsonFormBuilderState extends State<JsonFormBuilder> {
           fields.add(ImagePickerBuilder(rawField: rawField));
         } else if (rawField["type"] == 'switch-with-dropdown'){
           fields.add(SwitchWithDropdownBuilder(rawField: rawField,));
+        } else if (rawField["type"] == 'switch-with-dropdown'){
+          fields.add(SwitchWithDropdownBuilder(rawField: rawField,));
+        } else if (rawField["type"] == 'expandable-segmentedcontrol'){
+          fields.add(ExpandableSegmentedControlBuilder(rawField: rawField,));
         }
         fields.add(
           SizedBox(
