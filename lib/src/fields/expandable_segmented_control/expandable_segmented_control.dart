@@ -6,7 +6,7 @@ class ExpandableSegmentedControl extends StatelessWidget {
 
   final Map<String, dynamic> rawField;
   final FocusNode fn = FocusNode();
-  final Function(String value) onChanged;
+  final Function(dynamic value) onChanged;
 
   @override
   Widget build(BuildContext context) {

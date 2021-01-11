@@ -5,7 +5,7 @@ class SwitchWithDropdownSwitch extends StatelessWidget {
   SwitchWithDropdownSwitch({Key key, this.rawField, this.onChanged}) : super(key: key);
 
   final Map<String,dynamic> rawField;
-  final Function(bool value) onChanged;
+  final Function(dynamic value) onChanged;
   final FocusNode fn = FocusNode();
 
   @override
