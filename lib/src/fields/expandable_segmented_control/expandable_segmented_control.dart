@@ -23,7 +23,7 @@ class ExpandableSegmentedControl extends StatelessWidget {
             textAlign: TextAlign.left,
           ),
         ),
-        FormBuilderSegmentedControl<String>(
+        FormBuilderSegmentedControl<dynamic>(
           focusNode: fn,
           decoration: InputDecoration(
               hintText: rawField.containsKey("placeholder")
@@ -41,8 +41,8 @@ class ExpandableSegmentedControl extends StatelessWidget {
                   ? FormBuilderValidators.required(context)
                   : null,
           options: rawField["options"]
-              .map<FormBuilderFieldOption<String>>(
-                (option) => FormBuilderFieldOption<String>(
+              .map<FormBuilderFieldOption<dynamic>>(
+                (option) => FormBuilderFieldOption<dynamic>(
                     child: Text(option["label"]), value: option["value"]),
               )
               .toList(),

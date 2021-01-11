@@ -4,7 +4,6 @@ import 'package:json_form_builder/src/fields/date_picker_builder.dart';
 import 'package:json_form_builder/src/fields/dropdown_builder.dart';
 import 'package:json_form_builder/src/fields/filter_chip_builder.dart';
 import 'package:json_form_builder/src/fields/radio_group_builder.dart';
-import 'package:json_form_builder/src/fields/searchable_dropdown_builder.dart';
 import 'package:json_form_builder/src/fields/segmented_control_builder.dart';
 import 'package:json_form_builder/src/fields/text_field_builder.dart';
 
@@ -57,8 +56,6 @@ class _ExpandableDropdownExpandedState
           fields.add(DropdownBuilder(rawField: rawField, isExpanded: widget.isExpanded,));
         } else if (rawField["type"] == 'checkbox') {
           fields.add(CheckboxGroupBuilder(rawField: rawField, isExpanded: widget.isExpanded,));
-        } else if (rawField["type"] == 'searchabledropdown') {
-          fields.add(SearchableDropdownBuilder(rawField: rawField, isExpanded: widget.isExpanded,));
         } else if (rawField["type"] == 'filterchip') {
           fields.add(FilterChipBuilder(rawField: rawField, isExpanded: widget.isExpanded,));
         }

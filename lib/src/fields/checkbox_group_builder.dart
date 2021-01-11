@@ -23,7 +23,7 @@ class CheckboxGroupBuilder extends StatelessWidget {
             textAlign: TextAlign.left,
           ),
         ),
-        FormBuilderCheckboxGroup<String>(
+        FormBuilderCheckboxGroup<dynamic>(
           focusNode: fn,
           decoration: InputDecoration(
             hintText: rawField.containsKey("placeholder")
@@ -34,17 +34,17 @@ class CheckboxGroupBuilder extends StatelessWidget {
           name: rawField["name"],
           orientation: OptionsOrientation.vertical,
           initialValue: rawField["value"] != null
-              ? List<String>.from(rawField["value"])
+              ? List<dynamic>.from(rawField["value"])
               : null,
           validator:
               rawField.containsKey("required") && (rawField["required"] == "true" && isExpanded)
                   ? FormBuilderValidators.required(context)
                   : null,
           options: List<Map<String, dynamic>>.from(rawField["options"])
-              .map<FormBuilderFieldOption<String>>(
+              .map<FormBuilderFieldOption<dynamic>>(
                 (option) => FormBuilderFieldOption(
                   child: Text(option["label"]),
-                  value: option["value"].toString(),
+                  value: option["value"],
                 ),
               )
               .toList(),

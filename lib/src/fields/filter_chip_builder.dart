@@ -24,7 +24,7 @@ class FilterChipBuilder extends StatelessWidget {
             textAlign: TextAlign.left,
           ),
         ),
-        FormBuilderFilterChip<String>(
+        FormBuilderFilterChip<dynamic>(
           focusNode: fn,
           decoration: InputDecoration(
             hintText: rawField.containsKey("placeholder")
@@ -38,17 +38,17 @@ class FilterChipBuilder extends StatelessWidget {
                   : true,
           name: rawField["name"],
           initialValue: rawField["value"] != null
-              ? List<String>.from(rawField["value"])
+              ? List<dynamic>.from(rawField["value"])
               : [],
           validator:
               rawField.containsKey("required") && (rawField["required"] == "true" && isExpanded)
                   ? FormBuilderValidators.required(context)
                   : null,
           options: List<Map<String, dynamic>>.from(rawField["options"])
-              .map<FormBuilderFieldOption<String>>(
+              .map<FormBuilderFieldOption<dynamic>>(
                 (option) => FormBuilderFieldOption(
                   child: Text(option["label"]),
-                  value: option["value"].toString(),
+                  value: option["value"],
                 ),
               )
               .toList(),

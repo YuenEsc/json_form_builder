@@ -41,241 +41,77 @@ class _MyHomePageState extends State<MyHomePage> {
         builder: (context) => JsonFormBuilder(
           buttonLabel: 'Enviar',
           json: jsonEncode([
-            // {
-            //   "type": "title",
-            //   "title": "Title",
-            //   "subtitle": "Subtitle",
-            // },
-            // {
-            //   "type": "title",
-            //   "title": "Title",
-            // },
-            // {
-            //   "type": "title",
-            //   "subtitle": "Title",
-            // },
-            // {
-            //   "label": "Ingresa tu ubicación",
-            //   "type": "checkbox-with-comments",
-            //   "name": "location",
-            //   "required": "true",
-            //   "labelFirstComment": "Label 1",
-            //   "labelSecondComment": "Label 2"
-            // },
-            // {
-            //   "label": "Mensaje",
-            //   "type": "textfield",
-            //   "required": "true",
-            //   "name": "text"
-            // },
-            // {
-            //   "label": "Fecha",
-            //   "type": "datepicker",
-            //   "name": "date",
-            //   "required": "true"
-            // },
-            // {
-            //   "label": "¿Le gustó usar la plataforma?",
-            //   "type": "segmentedcontrol",
-            //   "name": "boolean",
-            //   "required": "true",
-            //   "options": [
-            //     {"label": "si", "value": "true"},
-            //     {"label": "no", "value": "false"},
-            //     {"label": "n/a", "value": "na"},
-            //   ],
-            // },
-            // {
-            //   "type": "radiogroup",
-            //   "label": "Seleccione un videojuego",
-            //   "name": "videogame",
-            //   "required": "true",
-            //   "options": [
-            //     {"label": "South Park Stick of truth", "value": "southpark"},
-            //     {"label": "Breath of the wild", "value": "Breath of the wild"},
-            //     {"label": "Yugioh forbidden memories", "value": "yugioh"},
-            //   ],
-            // },
-            // {
-            //   "label": "Seleccione un videojuego",
-            //   "type": "dropdown",
-            //   "name": "language",
-            //   "required": "true",
-            //   "options": [
-            //     {"label": "Español", "value": "southpark"},
-            //     {"label": "English", "value": "Breath of the wild"},
-            //     {"label": "Yugioh forbidden memories", "value": "yugioh"},
-            //   ],
-            // },
-            // {
-            //   "label": "Selecciona tus artistas favoritos",
-            //   "type": "checkbox",
-            //   "name": "artist2",
-            //   "required": "true",
-            //   "options": [
-            //     {"label": "Brian May", "value": "brian"},
-            //     {"label": "Roger Taylor", "value": "roger"},
-            //     {"label": "Freddie Mercury", "value": "freddie"},
-            //     {"label": "John Deacon", "value": "john"}
-            //   ]
-            // },
-            // {
-            //   "label": "Selecciona tus artistas favoritos",
-            //   "type": "searchabledropdown",
-            //   "name": "artist",
-            //   "required": "true",
-            //   "options": [
-            //     "Brian May",
-            //     "Roger Taylor",
-            //     "Freddie Mercury",
-            //     "John Deacon"
-            //   ]
-            // },
-            // {
-            //   "label": "Selecciona tus artistas favoritos",
-            //   "type": "filterchip",
-            //   "name": "artist3",
-            //   "required": "true",
-            //   "options": [
-            //     {"label": "Brian May", "value": "brian"},
-            //     {"label": "Roger Taylor", "value": "roger"},
-            //     {"label": "Freddie Mercury", "value": "freddie"},
-            //     {"label": "John Deacon", "value": "john"},
-            //     {"label": "David Bowie", "value": "bowie"},
-            //     {"label": "Natalia Lafourcade", "value": "lafourcade"},
-            //     {"label": "Michael Jackson", "value": "jackson"},
-            //     {"label": "Elvis Presley", "value": "presley"},
-            //     {"label": "Mon Laferte", "value": "laferte"},
-            //     {"label": "Axl Rose", "value": "axl"},
-            //     {"label": "Elthon John", "value": "elthon"},
-            //     {"label": "Ringo Star", "value": "ringo"},
-            //     {
-            //       "label":
-            //           "Un Artista con un nombre extremadamente largo jajdfljklsdfjlasdjflsdkj dsjfklajdsklfjkalsdjfkljskdljfk",
-            //     }
-            //   ]
-            // },
-            // {
-            //   "label": "Ingresa tu ubicación",
-            //   "type": "locationfield",
-            //   "name": "location",
-            //   "required": "true"
-            // },
-            // {
-            //   "label": "Subir evidencia fotografica",
-            //   "type": "imagepicker",
-            //   "name": "photos",
-            //   "required": "true",
-            //   "readOnly": "false",
-            // },
-            // {
-            //   "label": "¿Va acompañado?",
-            //   "type": "switch-with-dropdown",
-            //   "name": "switch1234",
-            //   "readOnly": "false",
-            //   "labelDropdown": "Seleccione su compañero",
-            //   "nameDropdown": "dropdown1234",
-            //   "optionsDropdown": [
-            //     {"label": "Yuen", "value": "Yuen"},
-            //     {"label": "Carlos", "value": "Carlos"},
-            //     {"label": "Alex", "value": "Alex"},
-            //   ]
-            // },
             {
-              "label": "¿Tiene problemas?",
-              "type": "expandable-segmentedcontrol",
-              "name": "queen1",
-              "required": "true",
-              "options": [
-                {"label": "si", "value": "true"},
-                {"label": "no", "value": "false"},
-                {"label": "n/a", "value": "na"},
-              ],
-              "expandValue": "false",
-              "expandedFields": [
-                {
-                  "label": "Seleccione un ",
-                  "type": "dropdown",
-                  "name": "queen2",
-                  "options": [
-                    {"label": "Español", "value": "southpark"},
-                    {"label": "English", "value": "Breath of the wild"},
-                    {"label": "Yugioh forbidden memories", "value": "yugioh"},
-                    {"label": "otro", "value": "otro"},
-                  ],
-                },
-                {
-                  "label": "Seleccione un ",
-                  "type": "dropdown",
-                  "name": "queen2",
-                  "options": [
-                    {"label": "Español", "value": "southpark"},
-                    {"label": "English", "value": "Breath of the wild"},
-                    {"label": "Yugioh forbidden memories", "value": "yugioh"},
-                    {"label": "otro", "value": "otro"},
-                  ],
-                },
-                {
-                  "label": "Seleccione un ",
-                  "type": "expandable-dropdown",
-                  "name": "queen2",
-                  "options": [
-                    {"label": "Español", "value": "southpark"},
-                    {"label": "English", "value": "Breath of the wild"},
-                    {"label": "Yugioh forbidden memories", "value": "yugioh"},
-                    {"label": "otro", "value": "otro"},
-                  ],
-                  "expandValue": "otro",
-                  "expandedFields": [
-                    {
-                      "label": "Mensaje",
-                      "type": "textfield",
-                      "name": "text"
-                    },
-                  ]
-                },
-                {
-                  "label": "Seleccione un ",
-                  "type": "expandable-dropdown",
-                  "name": "queen2",
-                  "options": [
-                    {"label": "Español", "value": "southpark"},
-                    {"label": "English", "value": "Breath of the wild"},
-                    {"label": "Yugioh forbidden memories", "value": "yugioh"},
-                    {"label": "otro", "value": "otro"},
-                  ],
-                  "expandValue": "otro",
-                  "expandedFields": [
-                    {
-                      "label": "Mensaje",
-                      "type": "textfield",
-                      "name": "text"
-                    },
-                  ]
-                },
+              "type": "textfield",
+              "label":"Name",
+              "name":"name"
+            },
+            {
+              "type":"datepicker",
+              "label":"Birthdate",
+              "name":"birthdate"
+            },
+            {
+              "type":"segmentedcontrol",
+              "label":"Are you ok?",
+              "name":"arufine",
+              "value":false,
+              "options":[
+                {"label":"Yes","value":true},
+                {"label":"No","value":false},
               ]
             },
             {
-                  "label": "Seleccione un ",
-                  "type": "expandable-dropdown",
-                  "name": "queen2",
-                  "required": "true",
-                  "options": [
-                    {"label": "Español", "value": "southpark"},
-                    {"label": "English", "value": "Breath of the wild"},
-                    {"label": "Yugioh forbidden memories", "value": "yugioh"},
-                    {"label": "otro", "value": "otro"},
-                  ],
-                  "expandValue": "otro",
-                  "expandedFields": [
-                    {
-                      "label": "Mensaje",
-                      "type": "textfield",
-                      "required": "true",
-                      "name": "text"
-                    },
-                  ]
-                },
+              "type":"checkbox",
+              "label":"Are you ok?",
+              "name":"arufine2",
+              "value":[false],
+              "options":[
+                {"label":"Yes","value":true},
+                {"label":"No","value":false},
+              ]
+            },
+            {
+              "type":"radiogroup",
+              "label":"Are you ok?",
+              "name":"arufine3",
+              "value":[false],
+              "options":[
+                {"label":"Yes","value":true},
+                {"label":"No","value":false},
+              ]
+            },
+            {
+              "type":"dropdown",
+              "label":"Are you ok?",
+              "name":"arufine4",
+              "value":false,
+              "options":[
+                {"label":"Yes","value":true},
+                {"label":"No","value":false},
+              ]
+            },
+            {
+              "type":"filterchip",
+              "label":"Are you ok?",
+              "name":"arufine4",
+              "value":[false],
+              "options":[
+                {"label":"Yes","value":true},
+                {"label":"No","value":false},
+              ]
+            },
+            {
+              "type":"locationfield",
+              "label":"Are you ok?",
+              "name":"arufine5",
+            },
+            {
+              "type":"imagepicker",
+              "label":"Are you ok?",
+              "name":"arufine6",
+              "required":"true"
+            }
           ]),
           onSubmittedAndValid: (results) {
             print(results);

@@ -12,7 +12,6 @@ import 'package:json_form_builder/src/fields/filter_chip_builder.dart';
 import 'package:json_form_builder/src/fields/image_picker_builder.dart';
 import 'package:json_form_builder/src/fields/location_field_builder.dart';
 import 'package:json_form_builder/src/fields/radio_group_builder.dart';
-import 'package:json_form_builder/src/fields/searchable_dropdown_builder.dart';
 import 'package:json_form_builder/src/fields/segmented_control_builder.dart';
 import 'package:json_form_builder/src/fields/switch_with_dropdown/switch_with_dropdown_builder.dart';
 import 'package:json_form_builder/src/fields/text_field_builder.dart';
@@ -110,12 +109,6 @@ class _JsonFormBuilderState extends State<JsonFormBuilder> {
         } else if (rawField["type"] == 'checkbox') {
           fields.add(
             CheckboxGroupBuilder(
-              rawField: rawField,
-            ),
-          );
-        } else if (rawField["type"] == 'searchabledropdown') {
-          fields.add(
-            SearchableDropdownBuilder(
               rawField: rawField,
             ),
           );

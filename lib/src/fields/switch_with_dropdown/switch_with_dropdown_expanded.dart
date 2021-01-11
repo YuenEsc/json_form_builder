@@ -29,7 +29,7 @@ class SwitchWithDropdownExpanded extends StatelessWidget {
             textAlign: TextAlign.left,
           ),
         ),
-        FormBuilderDropdown<String>(
+        FormBuilderDropdown<dynamic>(
           focusNode: fn,
           decoration: InputDecoration(
             hintText: rawField.containsKey("placeholderDropdown")
@@ -48,8 +48,8 @@ class SwitchWithDropdownExpanded extends StatelessWidget {
               ? FormBuilderValidators.required(context)
               : null,
           items: rawField["optionsDropdown"]
-              .map<DropdownMenuItem<String>>(
-                (option) => DropdownMenuItem<String>(
+              .map<DropdownMenuItem<dynamic>>(
+                (option) => DropdownMenuItem<dynamic>(
                   child: Text(option["label"]),
                   value: option["value"],
                 ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
+import 'package:form_builder_image_picker/form_builder_image_picker.dart';
 
 class ImagePickerBuilder extends StatelessWidget {
   ImagePickerBuilder({Key key, this.rawField}) : super(key: key);
@@ -35,7 +36,9 @@ class ImagePickerBuilder extends StatelessWidget {
                   : true,
           validator:
               rawField.containsKey("required") && rawField["required"] == "true"
-                  ? FormBuilderValidators.required(context)
+                  ? FormBuilderValidators.compose([
+                    FormBuilderValidators.required(context),
+                  ])
                   : null,
           maxImages: 4,
           imageQuality: 50,

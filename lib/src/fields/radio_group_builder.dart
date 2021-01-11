@@ -24,7 +24,7 @@ class RadioGroupBuilder extends StatelessWidget {
             textAlign: TextAlign.left,
           ),
         ),
-        FormBuilderRadioGroup(
+        FormBuilderRadioGroup<dynamic>(
           focusNode: fn,
           decoration: InputDecoration(
             hintText: rawField.containsKey("placeholder")
@@ -42,8 +42,8 @@ class RadioGroupBuilder extends StatelessWidget {
                   ? FormBuilderValidators.required(context)
                   : null,
           options: rawField["options"]
-              .map<FormBuilderFieldOption<String>>(
-                (option) => FormBuilderFieldOption<String>(
+              .map<FormBuilderFieldOption<dynamic>>(
+                (option) => FormBuilderFieldOption<dynamic>(
                   child: Text(option["label"]),
                   value: option["value"],
                 ),

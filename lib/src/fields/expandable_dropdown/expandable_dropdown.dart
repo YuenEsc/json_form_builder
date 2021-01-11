@@ -24,7 +24,7 @@ class ExpandableDropdown extends StatelessWidget {
             textAlign: TextAlign.left,
           ),
         ),
-        FormBuilderDropdown<String>(
+        FormBuilderDropdown<dynamic>(
           focusNode: fn,
           decoration: InputDecoration(
             hintText: rawField.containsKey("placeholder")
@@ -43,8 +43,8 @@ class ExpandableDropdown extends StatelessWidget {
                   ? FormBuilderValidators.required(context)
                   : null,
           items: rawField["options"]
-              .map<DropdownMenuItem<String>>(
-                (option) => DropdownMenuItem<String>(
+              .map<DropdownMenuItem<dynamic>>(
+                (option) => DropdownMenuItem<dynamic>(
                     child: Text(option["label"]), value: option["value"]),
               )
               .toList(),
