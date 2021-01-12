@@ -23,7 +23,7 @@ class _CheckboxWithCommentsBuilderState
     super.initState();
     isExpanded = widget.rawField.containsKey("value") &&
             widget.rawField["value"] == "true"
-        ? widget.rawField["value"]
+        ? true
         : false;
   }
 
