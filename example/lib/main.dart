@@ -111,6 +111,12 @@ class _MyHomePageState extends State<MyHomePage> {
               "label":"Are you ok?",
               "name":"arufine6",
               "required":"true"
+            },
+            {
+              "type":"phonefield",
+              "label":"Are you ok?",
+              "name":"arufine6",
+              "required":"true"
             }
           ]),
           onSubmittedAndValid: (results) {
