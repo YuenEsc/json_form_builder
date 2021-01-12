@@ -18,7 +18,7 @@ class SwitchWithDropdownSwitch extends StatelessWidget {
         style: Theme.of(context).textTheme.subtitle1,
       ),
       initialValue: rawField.containsKey("value") && rawField["value"] == "true"
-          ? rawField["value"]
+          ? true
           : false,
       onChanged: onChanged,
       decoration: InputDecoration(
