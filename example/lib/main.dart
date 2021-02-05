@@ -42,82 +42,11 @@ class _MyHomePageState extends State<MyHomePage> {
           buttonLabel: 'Enviar',
           json: jsonEncode([
             {
-              "type": "textfield",
-              "label":"Name",
-              "name":"name"
-            },
-            {
-              "type":"datepicker",
-              "label":"Birthdate",
-              "name":"birthdate"
-            },
-            {
-              "type":"segmentedcontrol",
-              "label":"Are you ok?",
-              "name":"arufine",
-              "value":false,
-              "options":[
-                {"label":"Yes","value":true},
-                {"label":"No","value":false},
-              ]
-            },
-            {
-              "type":"checkbox",
-              "label":"Are you ok?",
-              "name":"arufine2",
-              "value":[false],
-              "options":[
-                {"label":"Yes","value":true},
-                {"label":"No","value":false},
-              ]
-            },
-            {
-              "type":"radiogroup",
-              "label":"Are you ok?",
-              "name":"arufine3",
-              "value":[false],
-              "options":[
-                {"label":"Yes","value":true},
-                {"label":"No","value":false},
-              ]
-            },
-            {
-              "type":"dropdown",
-              "label":"Are you ok?",
-              "name":"arufine4",
-              "value":false,
-              "options":[
-                {"label":"Yes","value":true},
-                {"label":"No","value":false},
-              ]
-            },
-            {
-              "type":"filterchip",
-              "label":"Are you ok?",
-              "name":"arufine4",
-              "value":[false],
-              "options":[
-                {"label":"Yes","value":true},
-                {"label":"No","value":false},
-              ]
-            },
-            {
-              "type":"locationfield",
-              "label":"Are you ok?",
-              "name":"arufine5",
-            },
-            {
               "type":"imagepicker",
               "label":"Are you ok?",
               "name":"arufine6",
               "required":"true"
             },
-            {
-              "type":"phonefield",
-              "label":"Are you ok?",
-              "name":"arufine6",
-              "required":"true"
-            }
           ]),
           onSubmittedAndValid: (results) {
             print(results);

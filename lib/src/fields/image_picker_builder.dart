@@ -37,8 +37,12 @@ class ImagePickerBuilder extends StatelessWidget {
           validator:
               rawField.containsKey("required") && rawField["required"] == "true"
                   ? FormBuilderValidators.compose([
-                    FormBuilderValidators.required(context),
-                  ])
+                      FormBuilderValidators.required(context),
+                      (val) {
+                        if (val.length < 2) return FormBuilderLocalizations.of(context).minLengthErrorText(2);
+                        return null;
+                      }
+                    ])
                   : null,
           maxImages: 4,
           imageQuality: 50,

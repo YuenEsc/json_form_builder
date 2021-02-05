@@ -39,6 +39,7 @@ class SignaturepadBuilder extends StatelessWidget {
               rawField.containsKey("required") && (rawField["required"] == "true" && isExpanded)
                   ? FormBuilderValidators.required(context)
                   : null,
+          clearButtonText: rawField.containsKey("clearButtonText") ? rawField["clearButtonText"] : null,
         ),
       ],
     );
