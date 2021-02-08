@@ -69,7 +69,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     {"label":"hello3","value":"hello3"}
                   ]
                 },
-                 {
+                {
                   "type":"checkbox",
                   "label":"Are you ok?",
                   "name":"arufine6",
