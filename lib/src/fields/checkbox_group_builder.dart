@@ -39,6 +39,12 @@ class CheckboxGroupBuilder extends StatelessWidget {
           validator:
               rawField.containsKey("required") && (rawField["required"] == "true" && isExpanded)
                   ? FormBuilderValidators.required(context)
+                  : rawField.containsKey("allRequired") && (rawField["allRequired"] == "true")
+                  ? (val){
+                    if(val!= null && val.length < rawField["options"].length){
+                      return FormBuilderLocalizations.of(context).minLengthErrorText(rawField["options"].length);
+                    }
+                  }
                   : null,
           options: List<Map<String, dynamic>>.from(rawField["options"])
               .map<FormBuilderFieldOption<dynamic>>(

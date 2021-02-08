@@ -42,11 +42,48 @@ class _MyHomePageState extends State<MyHomePage> {
           buttonLabel: 'Enviar',
           json: jsonEncode([
             {
-              "type":"imagepicker",
-              "label":"Are you ok?",
-              "name":"arufine6",
-              "required":"true"
-            },
+              "type":"expandable-segmentedcontrol",
+              "label":"hello",
+              "options": [
+                {
+                  "label":"true",
+                  "value":"true"
+                },
+                {
+                  "label":"false",
+                  "value":"false"
+                }
+              ],
+              "expandValue":"true",
+              "expandedFields":[
+                {
+                  "type":"checkbox",
+                  "label":"Are you ok?",
+                  "name":"arufine6",
+                  "allRequired":"true",
+                  "options": [
+                    {"label":"hello","value":"hello"},
+                    {"label":"hello1","value":"hello1"},
+                    {"label":"hello4","value":"hello4"},
+                    {"label":"hello2","value":"hello2"},
+                    {"label":"hello3","value":"hello3"}
+                  ]
+                },
+                 {
+                  "type":"checkbox",
+                  "label":"Are you ok?",
+                  "name":"arufine6",
+                  "allRequired":"true",
+                  "options": [
+                    {"label":"hello","value":"hello"},
+                    {"label":"hello1","value":"hello1"},
+                    {"label":"hello4","value":"hello4"},
+                    {"label":"hello2","value":"hello2"},
+                    {"label":"hello3","value":"hello3"}
+                  ]
+                },
+              ]
+            }
           ]),
           onSubmittedAndValid: (results) {
             print(results);
