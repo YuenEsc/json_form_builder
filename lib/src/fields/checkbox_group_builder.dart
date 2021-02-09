@@ -44,6 +44,7 @@ class CheckboxGroupBuilder extends StatelessWidget {
                     if(val!= null && val.length < rawField["options"].length){
                       return FormBuilderLocalizations.of(context).minLengthErrorText(rawField["options"].length);
                     }
+                    return null;
                   }
                   : null,
           options: List<Map<String, dynamic>>.from(rawField["options"])

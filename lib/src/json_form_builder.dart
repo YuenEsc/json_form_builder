@@ -16,6 +16,7 @@ import 'package:json_form_builder/src/fields/radio_group_builder.dart';
 import 'package:json_form_builder/src/fields/segmented_control_builder.dart';
 import 'package:json_form_builder/src/fields/signaturepad_builder.dart';
 import 'package:json_form_builder/src/fields/switch_with_dropdown/switch_with_dropdown_builder.dart';
+import 'package:json_form_builder/src/fields/tag_editor_builder.dart';
 import 'package:json_form_builder/src/fields/text_field_builder.dart';
 import 'package:json_form_builder/src/fields/title_builder.dart';
 
@@ -138,6 +139,12 @@ class _JsonFormBuilderState extends State<JsonFormBuilder> {
             LocationFieldBuilder(
               rawField: rawField,
               fbKey: widget.fbKey,
+            ),
+          );
+        } else if (rawField["type"] == 'tageditorfield') {
+          fields.add(
+            TagEditorBuilder(
+              rawField: rawField,
             ),
           );
         } else if (rawField["type"] == 'checkbox-with-comments') {

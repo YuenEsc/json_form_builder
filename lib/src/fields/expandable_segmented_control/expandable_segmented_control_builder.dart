@@ -45,7 +45,7 @@ class _ExpandableSegmentedControlBuilderState
             rawFieldList: List<Map<String, dynamic>>.from(
                 widget.rawField['expandedFields']),
           ),
-        )
+        ),
       ],
     );
   }

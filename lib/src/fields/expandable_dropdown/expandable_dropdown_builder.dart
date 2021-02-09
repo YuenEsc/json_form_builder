@@ -45,7 +45,7 @@ class _ExpandableDropdownBuilderState
             rawFieldList: List<Map<String, dynamic>>.from(
                 widget.rawField['expandedFields']),
           ),
-        )
+        ),
       ],
     );
   }
