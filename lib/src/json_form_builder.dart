@@ -145,6 +145,7 @@ class _JsonFormBuilderState extends State<JsonFormBuilder> {
           fields.add(
             TagEditorBuilder(
               rawField: rawField,
+              fbKey: widget.fbKey,
             ),
           );
         } else if (rawField["type"] == 'checkbox-with-comments') {

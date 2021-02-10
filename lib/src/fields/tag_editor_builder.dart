@@ -21,7 +21,7 @@ class _TagEditorBuilderState extends State<TagEditorBuilder> {
   @override
   void initState() { 
     super.initState();
-    if(widget.rawField.containsKey("value")){
+    if(widget.rawField.containsKey("value") && widget.rawField["value"] != null){
      values = List<String>.from(widget.rawField["value"]);
     }
   }
