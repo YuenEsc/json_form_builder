@@ -3,10 +3,11 @@ import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:material_tag_editor/tag_editor.dart';
 
 class TagEditorBuilder extends StatefulWidget {
-  TagEditorBuilder({Key key, this.rawField, this.isExpanded = true})
+  TagEditorBuilder({Key key, this.rawField, this.isExpanded = true, this.fbKey})
       : super(key: key);
 
   final Map<String, dynamic> rawField;
+  final GlobalKey<FormBuilderState> fbKey;
   final bool isExpanded;
 
   @override
@@ -62,6 +63,7 @@ class _TagEditorBuilderState extends State<TagEditorBuilder> {
               focusNode: fn,
               delimiters: [','],
               hasAddButton: true,
+              enabled: widget.fbKey.currentState.enabled,
               inputDecoration: InputDecoration(
               hintText:
                   widget.rawField.containsKey("placeholder") ? widget.rawField["placeholder"] : null,
