@@ -24,6 +24,9 @@ class _TagEditorBuilderState extends State<TagEditorBuilder> {
     if(widget.rawField.containsKey("value") && widget.rawField["value"] != null){
      values = List<String>.from(widget.rawField["value"]);
     }
+    if(widget?.fbKey?.currentState?.initialValue?.containsKey(widget?.rawField["name"]) != null){
+     values = List<String>.from(widget.fbKey.currentState.initialValue[widget.rawField["name"]]);
+    }
   }
 
   onDelete(index, field) {

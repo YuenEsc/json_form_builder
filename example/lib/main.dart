@@ -39,6 +39,9 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Builder(
         builder: (context) => JsonFormBuilder(
+          initialValue: {
+            "tageditor": ["hello"]
+          },
           buttonLabel: 'Enviar',
           json: jsonEncode([
             {
