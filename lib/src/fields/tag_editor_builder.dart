@@ -41,7 +41,7 @@ class _TagEditorBuilderState extends State<TagEditorBuilder> {
   @override
   Widget build(BuildContext context) {
     return FormBuilderField(
-      name: "name",
+      name: widget.rawField["name"],
       initialValue: widget.rawField["value"],
           validator:
               widget.rawField.containsKey("required") && (widget.rawField["required"] == "true" && widget.isExpanded)
