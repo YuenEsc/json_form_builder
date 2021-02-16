@@ -48,7 +48,7 @@ class _MyHomePageState extends State<MyHomePage> {
               "type":"tageditorfield",
               "name":"tageditor",
               "label":"hello",
-              "value":["Yuen Steven"]
+              "value":null
             }
           ]),
           onSubmittedAndValid: (results) {

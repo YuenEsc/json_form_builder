@@ -12,7 +12,6 @@ dependencies:
     sdk: flutter
   flutter_form_builder: ^4.2.0
   form_builder_image_picker: ^0.1.2
-  form_builder_phone_field: ^0.1.0
   material_tag_editor: ^0.0.6
   intl: ^0.16.1
   geolocator: ^6.1.9
