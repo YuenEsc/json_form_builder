@@ -53,9 +53,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ]),
           onSubmittedAndValid: (results) {
             print(results);
-            Scaffold.of(context).showSnackBar(SnackBar(
-              content: Text(jsonEncode(results)),
-            ));
+            
           },
           onSubmittedAndNotValid: (results) {
             print(results);
