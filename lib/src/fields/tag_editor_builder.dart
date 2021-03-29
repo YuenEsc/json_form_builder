@@ -3,6 +3,7 @@ import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:json_form_builder/src/label_builder.dart';
 import 'package:json_form_builder/src/utils/build_input_decoration.dart';
 import 'package:json_form_builder/src/utils/is_field_enabled.dart';
+import 'package:json_form_builder/src/utils/text_input_type_builder.dart';
 import 'package:json_form_builder/src/utils/validator_builder.dart';
 import 'package:material_tag_editor/tag_editor.dart';
 
@@ -40,6 +41,7 @@ class _TagEditorBuilderState extends State<TagEditorBuilder> {
     return FormBuilderField(
       onChanged: widget.onChanged,
       name: widget.fieldSchema["name"],
+      initialValue: widget.fieldSchema["value"],
       validator: validatorBuilder(
         context: context,
         fieldSchema: widget.fieldSchema,
@@ -56,6 +58,7 @@ class _TagEditorBuilderState extends State<TagEditorBuilder> {
             delimiters: [','],
             hasAddButton: true,
             enabled: widget.fbKey.currentState.enabled,
+            keyboardType: textInputTypeBuilder(widget.fieldSchema),
             onSubmitted: (outstandingValue) {
               setState(() {
                 values.add(outstandingValue);
