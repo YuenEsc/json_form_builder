@@ -39,30 +39,36 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Builder(
         builder: (context) => JsonFormBuilder(
+          onFinish: (values) {
+            ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+              content: Text(jsonEncode(values)),
+            ));
+          },
           json: jsonEncode([
             {
-              "type": "textField",
+              "type":"datepicker",
+              "name":"date",
+              "label":"date",
+              "value":"2021-4-29",
+            },
+            {
+              "type": "textfield",
               "name": "texteditor",
               "label": "Escribe tus comentarios",
-              "value": null,
             },
             {
               "type": "switch",
-              "name": "texteditor",
+              "name": "switch",
               "label": "Escribe tus comentarios",
-              "value": null,
+              "value":true
             },
             {
-              "type": "imagePicker",
+              "type": "imagepicker",
               "name": "Imagenes",
               "label": "Escribe tus comentarios",
-              "value": null,
-              "validators": {
-                "arrayMinLength": 3,
-              }
             },
             {
-              "type": "checkboxGroup",
+              "type": "checkboxgroup",
               "name": "checkboxgroup1",
               "label": "Selecciona tu artista favorito",
               "options": [
@@ -83,7 +89,6 @@ class _MyHomePageState extends State<MyHomePage> {
                   "value": 4,
                 },
               ],
-              "value": null,
             },
             {
               "type": "dropdown",
@@ -107,10 +112,9 @@ class _MyHomePageState extends State<MyHomePage> {
                   "value": 4,
                 },
               ],
-              "value": null,
             },
             {
-              "type": "segmentedControl",
+              "type": "segmentedcontrol",
               "name": "checkboxgroup2",
               "label": "Selecciona tu artista favorito",
               "options": [
@@ -131,7 +135,6 @@ class _MyHomePageState extends State<MyHomePage> {
                   "value": 4,
                 },
               ],
-              "value": null,
             },
           ]),
         ),
