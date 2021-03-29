@@ -21,6 +21,7 @@ class DropdownBuilder extends StatelessWidget {
           focusNode: fn,
           decoration: buildInputDecoration(fieldSchema: fieldSchema),
           name: fieldSchema["name"],
+          initialValue: fieldSchema["value"],
           enabled: isFieldEnabled(fieldSchema),
           validator: validatorBuilder(fieldSchema: fieldSchema),
           onChanged: onChanged,
