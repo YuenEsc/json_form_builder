@@ -29,9 +29,13 @@ class ImagePickerBuilder extends StatelessWidget {
           fieldSchema: fieldSchema,
           isExpanded: isExpanded,
         ),
-        maxImages: fieldSchema["validators"]['arrayMaxLength'] ?? 4,
+        maxImages: fieldSchema.containsKey("validators") &&
+                fieldSchema["validators"].containsKey("arrayMaxLength")
+            ? fieldSchema["validators"]['arrayMaxLength']
+            : 4,
         name: fieldSchema["name"],
         imageQuality: 50,
+        initialValue: fieldSchema.containsKey("value") ? fieldSchema["value"] : null,
         onChanged: onChanged,
       ),
       fieldSchema: fieldSchema,
