@@ -35,6 +35,7 @@ class DatePickerBuilder extends StatelessWidget {
             }
             return DateFormat('y-M-d').format(dateTime);
           },
+          initialValue: fieldSchema.containsKey("value") ? DateFormat('y-M-d').parse(fieldSchema["value"]) : null,
           enabled: isFieldEnabled(fieldSchema),
           onChanged: onChanged,
         ),
