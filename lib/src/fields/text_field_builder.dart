@@ -7,7 +7,10 @@ import 'package:json_form_builder/src/utils/validator_builder.dart';
 
 class TextFieldBuilder extends StatelessWidget {
   TextFieldBuilder(
-      {Key key, @required this.fieldSchema, this.isExpanded = true, this.onChanged})
+      {Key key,
+      @required this.fieldSchema,
+      this.isExpanded = true,
+      this.onChanged})
       : super(key: key);
 
   final Map<String, dynamic> fieldSchema;
@@ -25,6 +28,12 @@ class TextFieldBuilder extends StatelessWidget {
         ),
         name: fieldSchema["name"],
         enabled: isFieldEnabled(fieldSchema),
+        minLines: fieldSchema.containsKey("minLines")
+            ? fieldSchema["minLines"]
+            : null,
+        maxLines: fieldSchema.containsKey("maxLines")
+            ? fieldSchema["maxLines"]
+            : null,
         initialValue: fieldSchema["value"],
         validator: validatorBuilder(
           context: context,
