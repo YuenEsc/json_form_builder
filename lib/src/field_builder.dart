@@ -21,34 +21,34 @@ class FieldBuilder extends StatelessWidget {
     return Builder(
       builder: (context) {
         if (fieldSchema.containsKey('type')) {
-          if (fieldSchema["type"] == "textField") {
+          if (fieldSchema["type"] == "textfield") {
             return TextFieldBuilder(
               fieldSchema: fieldSchema,
               isExpanded: isExpanded,
               onChanged: onChanged,
             );
           }
-          if (fieldSchema["type"] == "checkboxGroup") {
+          if (fieldSchema["type"] == "checkboxgroup") {
             return CheckboxGroupBuilder(
               fieldSchema: fieldSchema,
               onChanged: onChanged,
             );
           }
-          if (fieldSchema["type"] == "datePicker") {
+          if (fieldSchema["type"] == "datepicker") {
             return DatePickerBuilder(
               fieldSchema: fieldSchema,
               onChanged: onChanged,
             
             );
           }
-          if (fieldSchema["type"] == "imagePicker") {
+          if (fieldSchema["type"] == "imagepicker") {
             return ImagePickerBuilder(
               fieldSchema: fieldSchema,
               onChanged: onChanged,
             
             );
           }
-          if (fieldSchema["type"] == "segmentedControl") {
+          if (fieldSchema["type"] == "segmentedcontrol") {
             return SegmentedControlBuilder(
               fieldSchema: fieldSchema,
               onChanged: onChanged,
@@ -75,7 +75,7 @@ class FieldBuilder extends StatelessWidget {
               onChanged: onChanged,
             );
           }
-           if (fieldSchema["type"] == "tagEditor") {
+           if (fieldSchema["type"] == "tageditor") {
             return TagEditorBuilder(
               fieldSchema: fieldSchema,
               onChanged: onChanged,
