@@ -86,6 +86,7 @@ class FieldBuilder extends StatelessWidget {
               fieldSchema: fieldSchema,
             );
           }
+          return SizedBox.shrink();
         } else {
           throw FormatException("type property must be specified");
         }
