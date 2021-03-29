@@ -23,6 +23,7 @@ class RadioGroupBuilder extends StatelessWidget {
           decoration: buildInputDecoration(fieldSchema: fieldSchema),
           name: fieldSchema["name"],
           enabled: isFieldEnabled(fieldSchema),
+          initialValue: fieldSchema["value"],
           validator: validatorBuilder(fieldSchema: fieldSchema),
           onChanged: onChanged,
           options: fieldSchema["options"]
