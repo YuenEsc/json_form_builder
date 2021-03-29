@@ -32,6 +32,7 @@ class SegmentedControlBuilder extends StatelessWidget {
           fieldSchema: fieldSchema,
           isExpanded: isExpanded,
         ),
+        initialValue: fieldSchema["value"],
         onChanged: onChanged,
         options: fieldSchema["options"]
             .map<FormBuilderFieldOption<dynamic>>(
