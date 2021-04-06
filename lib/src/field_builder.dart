@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:json_form_builder/src/fields/date_picker_builder.dart';
 import 'package:json_form_builder/src/fields/fields.dart';
 import 'package:json_form_builder/src/fields/image_picker_builder.dart';
+import 'package:json_form_builder/src/fields/location_field_builder.dart';
 
 ///delegates the field constructor to the corresponding type based on it
 class FieldBuilder extends StatelessWidget {
@@ -83,6 +84,10 @@ class FieldBuilder extends StatelessWidget {
           }
           if (fieldSchema["type"] == "title") {
             return TitleBuilder(
+              fieldSchema: fieldSchema,
+            );
+          }if (fieldSchema["type"] == "locationfield") {
+            return LocationFieldBuilder(
               fieldSchema: fieldSchema,
             );
           }

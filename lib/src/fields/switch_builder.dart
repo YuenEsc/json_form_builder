@@ -32,8 +32,8 @@ class SwtichBuilder extends StatelessWidget {
       initialValue:
           fieldSchema.containsKey("value") && fieldSchema["value"] == true
               ? true
-              : FormBuilder.of(context).initialValue.containsKey("name")
-                  ? FormBuilder.of(context).initialValue["value"]
+              : FormBuilder.of(context).initialValue.containsKey(fieldSchema["name"])
+                  ? FormBuilder.of(context).initialValue[fieldSchema["name"]]
                   : false,
       validator: validatorBuilder(
         context: context,
