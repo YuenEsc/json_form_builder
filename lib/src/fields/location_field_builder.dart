@@ -40,7 +40,9 @@ class _LocationFieldBuilderState extends State<LocationFieldBuilder> {
         address =
             '${placemarks[0].street}, ${placemarks[0].locality} ${placemarks[0].postalCode}, ${placemarks[0].country}  ';
       });
-    } catch (e) {}
+    } catch (e) {
+      print(e);
+    }
   }
 
   @override
@@ -56,8 +58,8 @@ class _LocationFieldBuilderState extends State<LocationFieldBuilder> {
         initialValue: widget.fieldSchema.containsKey("value")
             ? widget.fieldSchema["value"]
             : FormBuilder.of(context)
-                    .initialValue
-                    .containsKey(widget.fieldSchema["name"])
+                    ?.initialValue
+                    ?.containsKey(widget.fieldSchema["name"]) != null
                 ? FormBuilder.of(context)
                     .initialValue[widget.fieldSchema["name"]]
                 : address,
