@@ -7,26 +7,30 @@ class TitleBuilder extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      tileColor: Colors.red,
-      title: fieldSchema.containsKey("title")
-          ? Text(
-              fieldSchema["title"],
-              style: Theme.of(context)
-                  .textTheme
-                  .headline6
-                  .copyWith(color: Colors.white),
-            )
-          : null,
-      subtitle: fieldSchema.containsKey("subtitle")
-          ? Text(
-              fieldSchema["subtitle"],
-              style: Theme.of(context)
-                  .textTheme
-                  .subtitle1
-                  .copyWith(color: Colors.white),
-            )
-          : null,
+    return Card(
+      color: Theme.of(context).primaryColor,
+      child: ListTile(
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.circular(16))),
+        title: fieldSchema.containsKey("title")
+            ? Text(
+                fieldSchema["title"],
+                style: Theme.of(context)
+                    .textTheme
+                    .headline6
+                    .copyWith(color: Colors.white),
+              )
+            : null,
+        subtitle: fieldSchema.containsKey("subtitle")
+            ? Text(
+                fieldSchema["subtitle"],
+                style: Theme.of(context)
+                    .textTheme
+                    .bodyText1
+                    .copyWith(color: Colors.white),
+              )
+            : null,
+      ),
     );
   }
 }
