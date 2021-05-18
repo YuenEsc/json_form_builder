@@ -92,10 +92,10 @@ class _JsonFormBuilderState extends State<JsonFormBuilder> {
   submitForm() {
     if (widget.fbKey.currentState.saveAndValidate()) {
       Map<String, dynamic> values = widget.fbKey.currentState.value;
-      if(widget.onFinish != null) widget?.onFinish(values);
+      if (widget?.onFinish != null) widget?.onFinish(values);
     } else {
       Map<String, dynamic> values = widget.fbKey.currentState.value;
-      if(widget.onFinish != null) widget?.onFinishFailed(values);
+      if (widget?.onFinishFailed != null) widget?.onFinishFailed(values);
     }
   }
 
@@ -112,7 +112,19 @@ class _JsonFormBuilderState extends State<JsonFormBuilder> {
       ));
     });
     if (widget.showSubmitButton) {
-      fields.add(ElevatedButton(onPressed: submitForm, child: Text('Submit')));
+      fields.add(
+        Padding(
+          padding: const EdgeInsets.only(bottom: 16.0),
+          child: SizedBox(
+            height: 48,
+            width: MediaQuery.of(context).size.width,
+            child: ElevatedButton(
+              onPressed: submitForm,
+              child: Text('Submit'),
+            ),
+          ),
+        ),
+      );
     }
     setState(() {
       fields = fields;
