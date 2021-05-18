@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:json_form_builder/json_form_builder.dart';
 
@@ -37,108 +36,31 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: Builder(
-        builder: (context) => JsonFormBuilder(
-          onFinish: (values) {
-            ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-              content: Text(jsonEncode(values)),
-            ));
-          },
-          json: jsonEncode([
-            {
-              "type":"datepicker",
-              "name":"date",
-              "label":"date",
-              "value":"2021-4-29",
-            },
-            {
-              "type": "textfield",
-              "name": "texteditor",
-              "label": "Escribe tus comentarios",
-            },
-            {
-              "type": "switch",
-              "name": "switch",
-              "label": "Escribe tus comentarios",
-              "value":true
-            },
-            {
-              "type": "imagepicker",
-              "name": "Imagenes",
-              "label": "Escribe tus comentarios",
-            },
-            {
-              "type": "checkboxgroup",
-              "name": "checkboxgroup1",
-              "label": "Selecciona tu artista favorito",
-              "options": [
-                {
-                  "label": "Freddie Mercury",
-                  "value": 1,
+      body: FutureBuilder(
+          future: DefaultAssetBundle.of(context)
+              .loadString("assets/jsa_field_generic.json"),
+          builder: (context, snapshot) {
+            if (snapshot.hasData) {
+              return JsonFormBuilder(
+                onFinish: (values) {
+                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                    content: Text(jsonEncode(values)),
+                  ));
                 },
-                {
-                  "label": "Roger Taylor",
-                  "value": 2,
+                onFinishFailed: (values) {
+                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                    content: Text(jsonEncode(values)),
+                  ));
                 },
-                {
-                  "label": "Bryan May",
-                  "value": 3,
-                },
-                {
-                  "label": "John Deacon",
-                  "value": 4,
-                },
-              ],
-            },
-            {
-              "type": "dropdown",
-              "name": "checkboxgroup13",
-              "label": "Selecciona tu artista favorito",
-              "options": [
-                {
-                  "label": "Freddie Mercury",
-                  "value": 1,
-                },
-                {
-                  "label": "Roger Taylor",
-                  "value": 2,
-                },
-                {
-                  "label": "Bryan May",
-                  "value": 3,
-                },
-                {
-                  "label": "John Deacon",
-                  "value": 4,
-                },
-              ],
-            },
-            {
-              "type": "segmentedcontrol",
-              "name": "checkboxgroup2",
-              "label": "Selecciona tu artista favorito",
-              "options": [
-                {
-                  "label": "Freddie",
-                  "value": 1,
-                },
-                {
-                  "label": "Roger",
-                  "value": 2,
-                },
-                {
-                  "label": "Bryan",
-                  "value": 3,
-                },
-                {
-                  "label": "John",
-                  "value": 4,
-                },
-              ],
-            },
-          ]),
-        ),
-      ),
+                json: jsonEncode(jsonDecode(snapshot.data)["es"]),
+              );
+            }
+            return Container(
+              child: Center(
+                child: CircularProgressIndicator(),
+              ),
+            );
+          }),
     );
   }
 }
