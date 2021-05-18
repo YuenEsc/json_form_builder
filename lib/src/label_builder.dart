@@ -24,7 +24,7 @@ class LabelBuilder extends StatelessWidget {
               : null,
           child: Text(
             fieldSchema.containsKey("label") ? fieldSchema["label"] : null,
-            style: Theme.of(context).textTheme.subtitle1,
+            style: Theme.of(context).textTheme.subtitle1.copyWith(fontWeight: FontWeight.w500),
             textAlign: TextAlign.left,
           ),
         ),

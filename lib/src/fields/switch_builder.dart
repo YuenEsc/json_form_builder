@@ -25,14 +25,21 @@ class SwtichBuilder extends StatelessWidget {
         fieldSchema: fieldSchema,
         hasBorder: false,
       ),
-      title:
-          fieldSchema.containsKey("label") ? Text(fieldSchema["label"]) : null,
+      title: fieldSchema.containsKey("label")
+          ? Text(
+              fieldSchema["label"],
+              style: Theme.of(context).textTheme.subtitle1.copyWith(fontWeight: FontWeight.w500),
+            )
+          : null,
       name: fieldSchema["name"],
       enabled: isFieldEnabled(fieldSchema),
       initialValue:
           fieldSchema.containsKey("value") && fieldSchema["value"] == true
               ? true
-              : FormBuilder.of(context).initialValue.containsKey(fieldSchema["name"])
+              : FormBuilder?.of(context)
+                          ?.initialValue
+                          ?.containsKey(fieldSchema["name"]) !=
+                      null
                   ? FormBuilder.of(context).initialValue[fieldSchema["name"]]
                   : false,
       validator: validatorBuilder(

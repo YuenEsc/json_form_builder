@@ -23,12 +23,19 @@ class CheckboxBuilder extends StatelessWidget {
       focusNode: fn,
       decoration: buildInputDecoration(
         fieldSchema: fieldSchema,
+        hasBorder: true,
       ),
-      title:
-          fieldSchema.containsKey("label") ? Text(fieldSchema["label"]) : null,
+      title: fieldSchema.containsKey("label")
+          ? Text(
+              fieldSchema["label"],
+              style: Theme.of(context).textTheme.subtitle1.copyWith(
+                    fontWeight: FontWeight.w500,
+                  ),
+            )
+          : null,
       name: fieldSchema["name"],
       enabled: isFieldEnabled(fieldSchema),
-      initialValue: fieldSchema["value"],
+      initialValue: fieldSchema["value"] == null ? false : fieldSchema["value"],
       validator: validatorBuilder(
         context: context,
         fieldSchema: fieldSchema,
