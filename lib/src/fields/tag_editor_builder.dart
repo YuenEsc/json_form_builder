@@ -57,7 +57,8 @@ class _TagEditorBuilderState extends State<TagEditorBuilder> {
             focusNode: fn,
             delimiters: [','],
             hasAddButton: true,
-            enabled: widget.fbKey.currentState.enabled,
+            inputDecoration: buildInputDecoration(fieldSchema: widget.fieldSchema),
+            enabled: isFieldEnabled(widget.fieldSchema),
             keyboardType: textInputTypeBuilder(widget.fieldSchema),
             onSubmitted: (outstandingValue) {
               setState(() {
