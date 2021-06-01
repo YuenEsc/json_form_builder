@@ -42,6 +42,9 @@ class _MyHomePageState extends State<MyHomePage> {
           builder: (context, snapshot) {
             if (snapshot.hasData) {
               return JsonFormBuilder(
+                initialValue: {
+                  "question74_generic":true,
+                },
                 onFinish: (values) {
                   ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                     content: Text(jsonEncode(values)),

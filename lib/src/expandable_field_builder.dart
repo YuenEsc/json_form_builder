@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:json_form_builder/src/field_builder.dart';
 
 class ExpandableFieldBuilder extends StatefulWidget {
@@ -15,6 +16,19 @@ class ExpandableFieldBuilder extends StatefulWidget {
 
 class _ExpandableFieldBuilderState extends State<ExpandableFieldBuilder> {
   bool isExpanded = false;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    isExpanded = widget.fieldSchema.containsKey("value") &&
+            widget.fieldSchema["value"] == true
+        ? true
+        : FormBuilder?.of(context)
+                ?.initialValue
+                ?.containsKey(widget.fieldSchema["name"])
+            ? FormBuilder.of(context).initialValue[widget.fieldSchema["name"]]
+            : false;
+  }
 
   @override
   Widget build(BuildContext context) {

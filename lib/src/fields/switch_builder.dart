@@ -28,7 +28,10 @@ class SwtichBuilder extends StatelessWidget {
       title: fieldSchema.containsKey("label")
           ? Text(
               fieldSchema["label"],
-              style: Theme.of(context).textTheme.subtitle1.copyWith(fontWeight: FontWeight.w500),
+              style: Theme.of(context)
+                  .textTheme
+                  .subtitle1
+                  .copyWith(fontWeight: FontWeight.w500),
             )
           : null,
       name: fieldSchema["name"],
@@ -37,9 +40,8 @@ class SwtichBuilder extends StatelessWidget {
           fieldSchema.containsKey("value") && fieldSchema["value"] == true
               ? true
               : FormBuilder?.of(context)
-                          ?.initialValue
-                          ?.containsKey(fieldSchema["name"]) !=
-                      null
+                      ?.initialValue
+                      ?.containsKey(fieldSchema["name"])
                   ? FormBuilder.of(context).initialValue[fieldSchema["name"]]
                   : false,
       validator: validatorBuilder(

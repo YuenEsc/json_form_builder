@@ -35,7 +35,13 @@ class CheckboxBuilder extends StatelessWidget {
           : null,
       name: fieldSchema["name"],
       enabled: isFieldEnabled(fieldSchema),
-      initialValue: fieldSchema["value"] == null ? false : fieldSchema["value"],
+      initialValue: fieldSchema.containsKey("value") && fieldSchema["value"] == true
+              ? true
+              : FormBuilder?.of(context)
+                      ?.initialValue
+                      ?.containsKey(fieldSchema["name"])
+                  ? FormBuilder.of(context).initialValue[fieldSchema["name"]]
+                  : false,
       validator: validatorBuilder(
         context: context,
         fieldSchema: fieldSchema,
