@@ -47,12 +47,12 @@ class _MyHomePageState extends State<MyHomePage> {
                 },
                 onFinish: (values) {
                   ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                    content: Text(jsonEncode(values)),
+                    content: Text(jsonEncode(values["question74_generic"])),
                   ));
                 },
                 onFinishFailed: (values) {
                   ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                    content: Text(jsonEncode(values)),
+                    content: Text("${values["question74_generic"].runtimeType}"),
                   ));
                 },
                 json: jsonEncode(jsonDecode(snapshot.data)["es"]),

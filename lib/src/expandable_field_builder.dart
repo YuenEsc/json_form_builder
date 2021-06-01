@@ -20,14 +20,13 @@ class _ExpandableFieldBuilderState extends State<ExpandableFieldBuilder> {
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    isExpanded = widget.fieldSchema.containsKey("value") &&
-            widget.fieldSchema["value"] == true
-        ? true
-        : FormBuilder?.of(context)
-                ?.initialValue
-                ?.containsKey(widget.fieldSchema["name"])
-            ? FormBuilder.of(context).initialValue[widget.fieldSchema["name"]]
-            : false;
+    isExpanded = widget.fieldSchema.containsKey("value") && widget.fieldSchema.containsKey("expandable") &&
+    widget.fieldSchema["expandable"].containsKey("expandWhen") &&
+    widget?.fieldSchema["value"] == widget?.fieldSchema["expandable"]["expandWhen"]
+    ? true
+    : FormBuilder?.of(context)?.initialValue?.containsKey(widget.fieldSchema["name"])
+        && FormBuilder.of(context).initialValue[widget.fieldSchema["name"]] == widget.fieldSchema["expandable"]["expandWhen"] ? true
+        : false;
   }
 
   @override
