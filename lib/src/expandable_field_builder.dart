@@ -25,7 +25,8 @@ class _ExpandableFieldBuilderState extends State<ExpandableFieldBuilder> {
     widget?.fieldSchema["value"] == widget?.fieldSchema["expandable"]["expandWhen"]
     ? true
     : FormBuilder?.of(context)?.initialValue?.containsKey(widget.fieldSchema["name"])
-        && FormBuilder.of(context).initialValue[widget.fieldSchema["name"]] == widget.fieldSchema["expandable"]["expandWhen"] ? true
+        &&  widget.fieldSchema.containsKey("value") && widget.fieldSchema.containsKey("expandable") &&
+    widget.fieldSchema["expandable"].containsKey("expandWhen") && FormBuilder.of(context).initialValue[widget.fieldSchema["name"]] == widget.fieldSchema["expandable"]["expandWhen"] ? true
         : false;
   }
 
