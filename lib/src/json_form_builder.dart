@@ -72,12 +72,6 @@ class _JsonFormBuilderState extends State<JsonFormBuilder> {
   List<Widget> fields = [];
 
   @override
-  void initState() {
-    super.initState();
-    buildFieldsFromJson();
-  }
-
-  @override
   void didChangeDependencies() {
     super.didChangeDependencies();
     buildFieldsFromJson();
