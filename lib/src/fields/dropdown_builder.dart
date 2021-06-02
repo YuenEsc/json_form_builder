@@ -6,7 +6,8 @@ import 'package:json_form_builder/src/utils/is_field_enabled.dart';
 import 'package:json_form_builder/src/utils/validator_builder.dart';
 
 class DropdownBuilder extends StatelessWidget {
-  DropdownBuilder({Key key, this.fieldSchema, this.isExpanded = true, this.onChanged})
+  DropdownBuilder(
+      {Key key, this.fieldSchema, this.isExpanded = true, this.onChanged})
       : super(key: key);
 
   final Map<String, dynamic> fieldSchema;
@@ -23,7 +24,10 @@ class DropdownBuilder extends StatelessWidget {
           name: fieldSchema["name"],
           initialValue: fieldSchema["value"],
           enabled: isFieldEnabled(fieldSchema),
-          validator: validatorBuilder(fieldSchema: fieldSchema),
+          validator: validatorBuilder(
+            context: context,
+            fieldSchema: fieldSchema,
+          ),
           onChanged: onChanged,
           items: fieldSchema["options"]
               .map<DropdownMenuItem<dynamic>>(

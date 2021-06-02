@@ -3,8 +3,8 @@ import 'package:flutter_form_builder/flutter_form_builder.dart';
 
 ///validar builder that returns a validator compose with all the validators inside of it
 String Function(dynamic) validatorBuilder(
-    {BuildContext context,
-    Map<String, dynamic> fieldSchema,
+    {@required BuildContext context,
+   @required  Map<String, dynamic> fieldSchema,
     bool isExpanded = true}) {
   List<String Function(dynamic)> validators = [];
   if (isExpanded && fieldSchema.containsKey("validators")) {
