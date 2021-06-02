@@ -24,7 +24,10 @@ class RadioGroupBuilder extends StatelessWidget {
           name: fieldSchema["name"],
           enabled: isFieldEnabled(fieldSchema),
           initialValue: fieldSchema["value"],
-          validator: validatorBuilder(fieldSchema: fieldSchema),
+          validator: validatorBuilder(
+            context: context,
+            fieldSchema: fieldSchema,
+          ),
           onChanged: onChanged,
           options: fieldSchema["options"]
               .map<DropdownMenuItem<dynamic>>(
