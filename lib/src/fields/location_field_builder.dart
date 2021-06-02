@@ -25,8 +25,8 @@ class _LocationFieldBuilderState extends State<LocationFieldBuilder> {
   final FocusNode fn = FocusNode();
 
   @override
-  void initState() {
-    super.initState();
+  void didChangeDependencies() {
+    super.didChangeDependencies();
     getLocation();
   }
 
@@ -59,7 +59,7 @@ class _LocationFieldBuilderState extends State<LocationFieldBuilder> {
             ? widget.fieldSchema["value"]
             : FormBuilder.of(context)
                     ?.initialValue
-                    ?.containsKey(widget.fieldSchema["name"]) != null
+                    ?.containsKey(widget.fieldSchema["name"])
                 ? FormBuilder.of(context)
                     .initialValue[widget.fieldSchema["name"]]
                 : address,
