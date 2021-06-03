@@ -27,6 +27,7 @@ class RadioGroupBuilder extends StatelessWidget {
           validator: validatorBuilder(
             context: context,
             fieldSchema: fieldSchema,
+            isExpanded: isExpanded
           ),
           onChanged: onChanged,
           options: fieldSchema["options"]

@@ -4,8 +4,8 @@ import 'package:json_form_builder/src/utils/build_input_decoration.dart';
 import 'package:json_form_builder/src/utils/is_field_enabled.dart';
 import 'package:json_form_builder/src/utils/validator_builder.dart';
 
-class SwtichBuilder extends StatelessWidget {
-  SwtichBuilder(
+class SwitchBuilder extends StatelessWidget {
+  SwitchBuilder(
       {Key key,
       @required this.fieldSchema,
       this.isExpanded = true,

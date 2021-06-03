@@ -33,6 +33,7 @@ class FieldBuilder extends StatelessWidget {
             return CheckboxGroupBuilder(
               fieldSchema: fieldSchema,
               onChanged: onChanged,
+              isExpanded: isExpanded,
             );
           }
           if (fieldSchema["type"] == "datepicker") {
@@ -46,6 +47,7 @@ class FieldBuilder extends StatelessWidget {
             return ImagePickerBuilder(
               fieldSchema: fieldSchema,
               onChanged: onChanged,
+              isExpanded: isExpanded,
             
             );
           }
@@ -53,21 +55,21 @@ class FieldBuilder extends StatelessWidget {
             return SegmentedControlBuilder(
               fieldSchema: fieldSchema,
               onChanged: onChanged,
-            
+              isExpanded: isExpanded,
             );
           }
           if (fieldSchema["type"] == "switch") {
-            return SwtichBuilder(
+            return SwitchBuilder(
               fieldSchema: fieldSchema,
               onChanged: onChanged,
-            
+              isExpanded: isExpanded,
             );
           }
           if (fieldSchema["type"] == "checkbox") {
             return CheckboxBuilder(
               fieldSchema: fieldSchema,
               onChanged: onChanged,
-            
+              isExpanded: isExpanded,
             );
           }
           if (fieldSchema["type"] == "dropdown") {
@@ -80,6 +82,7 @@ class FieldBuilder extends StatelessWidget {
             return TagEditorBuilder(
               fieldSchema: fieldSchema,
               onChanged: onChanged,
+              isExpanded: isExpanded,
             );
           }
           if (fieldSchema["type"] == "title") {
@@ -89,6 +92,7 @@ class FieldBuilder extends StatelessWidget {
           }if (fieldSchema["type"] == "locationfield") {
             return LocationFieldBuilder(
               fieldSchema: fieldSchema,
+              isExpanded: isExpanded,
             );
           }
           return SizedBox.shrink();

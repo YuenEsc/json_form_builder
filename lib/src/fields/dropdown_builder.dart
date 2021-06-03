@@ -27,6 +27,7 @@ class DropdownBuilder extends StatelessWidget {
           validator: validatorBuilder(
             context: context,
             fieldSchema: fieldSchema,
+            isExpanded: isExpanded,
           ),
           onChanged: onChanged,
           items: fieldSchema["options"]
